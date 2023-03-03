@@ -1,3 +1,4 @@
+//Comentário inserido no Replit
 const express = require('express');
 const errorHandler = require('../src/_middleware/error-handler');
 const routes = require('./routes');

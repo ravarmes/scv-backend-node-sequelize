@@ -1,0 +1,2806 @@
+{
+	"info": {
+		"_postman_id": "83071bf2-8701-4672-8324-0e60108d8409",
+		"name": "scv-backend",
+		"description": "Sistema de Controle da Videolocadora",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "4048967"
+	},
+	"item": [
+		{
+			"name": "artistas",
+			"item": [
+				{
+					"name": "List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3333/artistas/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"artistas",
+								""
+							]
+						},
+						"description": "Listando todos os artistas"
+					},
+					"response": []
+				},
+				{
+					"name": "Get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3333/artistas/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"artistas",
+								"1"
+							]
+						},
+						"description": "Listando um artista"
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": null,\r\n    \"nome\": \"Jean Claude Van Damme\",\r\n    \"imagem\": \"/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAcFBQYFBAcGBQYIBwcIChELCgkJChUPEAwRGBUaGRgVGBcbHichGx0lHRcYIi4iJSgpKywrGiAvMy8qMicqKyr/2wBDAQcICAoJChQLCxQqHBgcKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKir/wAARCABGADQDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwCvqmjaCumu0Qh3Z4ZHy386y4T4d0bSmutTmhjQYAP3mY/Qcmrs1lamFtp2kt98NnNeO+KLmW616aOQJ/o7GJBGcjAP86ySvI6XpE6a6+JNraXkh0TR4iuColuCcnnrgVyuta7/AG9qLXVzapBlQqrEx+X8+tUo7C4lICRkk9hV4+G9TURMtq7eYcLtGTkc1TcVuJQqNXsUn0+ULvjVmXqARzg9D71f0+MBY2bAw461vaNpPiCKae7axupFVQ0gVM7gOue/v+FWPsdncX00ltHsgMpIXPAGeg+nSs3URqqTWpcE1vj+L6elFdBDYaW8KkMmMdzzRXPzI1sdMfA9pYK2HuFbdjdI3FeFaxGD4m1ADoLmQDPsxFfV+ueE1ljuLyS+nRU/eMG+4ABk18s6xGk/ii8ktHaSC4maSGRlKl0J64PSupK0nc5V7yRu+GVjtpllaFZmIGFYZBrtU8oqrm22c7sJwAfavOtNtbty7Ws9xbOg3eYXUBucYweSfavQdE1nV7nTLq0aSF9RtiDGTGCHGOf8a87EQ969z28PU0tY7v4c24i8UrDPCwivbd4mVh2xn+lZPiPwDp2meKEsIIXaIRh3OepLHmsPwNP4il8RQahcXl2zxXHTy12HAycqvIXtu969R8TOs/iy4kfO1Akar3GBk/hkn9aEuSFjlrSc6nN0t+Rhp8PNFMakWPUdd/WiuqiEZjXMcmcdqK3TVjgcpXJfEcdzc6feWkM8h86Jk27fVSP618naoFttYgMasAFwQw7g4NfWN3fMLhlMrHOMDbXi/wAa/Dumaeuna3YxeRc3dy8dwik7WJXduA6A5Bzjrmt95hSnyq3oc/pd1BMgjCgN3OOaueB57NNenuNRa4CKQzCKFnzH0JGPTiuY0+WR4ZpYsgxgbtoyfwrrPCeoXNuu1LdFV3J+ecKz8dDXDUjy3Pcg+Zqx6gI4tKkaa0IdH+7sGMn1BHat7UzJdakZGjMbNIcEjqML/wCzbqp+D7uOa3ubbUbMxNtDQySEHIJAIyPqKg03xMur+Ir2YOrRJOyQ4HARTgf4/jWS0jucldtyatt1+46mKCQRL85HHTHSirqX6FAQVor0Eo23PIbd9jjr+9MUjt5ozjoR1ryP4vawdWsdOst3Mdwzgeh2Yp174t1G0CnUZ1CsOcryfpXC65q0+q6vFLJGY4V+4rdT7mq+1c6KdPTUyrS/m0242TAgdx6ivQ/CXirSotxvCA/8HIGPX8a5ubTIr62DlQSo7VveEvCth54kuoGkZvului1y1p0pRvLc9OjCpGVlsewRX+n6l4au57OFrcpp807Pv+ZyqNtx6DODxXD/AA8kKwKzSAcDqa73whZw3Op/Y5UVoZrd4pEYZDKVxj6VyeqeHbTSryaHR5pLMqxHln94gPt3A/OueM48mvcmdOTqOMex3UepJtw0qDB7GivI5G1yKQqs0Dj+9uIz+dFXeP8AMc/sJ/ys4u3iaeQ3eoTPczY+83b2A6Cq5UXt35uNqrwBRRW/M+Zs6LJJJG5pCZbb2b5SK6ezkNjIkQ5O7aDmiivPq/Ed1H4Tu9Ou205ftkZYMqkcVymo6619qEjxRbXY5Jdv8KKKy6DglzNlK6i1BpQwu1QFcgBKKKKZqf/Z\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3333/artistas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"artistas"
+							]
+						},
+						"description": "Inserindo um artista"
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1,\r\n    \"nome\": \"Jean Alterado\",\r\n    \"imagem\": \"/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAcFBQYFBAcGBQYIBwcIChELCgkJChUPEAwRGBUaGRgVGBcbHichGx0lHRcYIi4iJSgpKywrGiAvMy8qMicqKyr/2wBDAQcICAoJChQLCxQqHBgcKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKir/wAARCABGADQDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwCvqmjaCumu0Qh3Z4ZHy386y4T4d0bSmutTmhjQYAP3mY/Qcmrs1lamFtp2kt98NnNeO+KLmW616aOQJ/o7GJBGcjAP86ySvI6XpE6a6+JNraXkh0TR4iuColuCcnnrgVyuta7/AG9qLXVzapBlQqrEx+X8+tUo7C4lICRkk9hV4+G9TURMtq7eYcLtGTkc1TcVuJQqNXsUn0+ULvjVmXqARzg9D71f0+MBY2bAw461vaNpPiCKae7axupFVQ0gVM7gOue/v+FWPsdncX00ltHsgMpIXPAGeg+nSs3URqqTWpcE1vj+L6elFdBDYaW8KkMmMdzzRXPzI1sdMfA9pYK2HuFbdjdI3FeFaxGD4m1ADoLmQDPsxFfV+ueE1ljuLyS+nRU/eMG+4ABk18s6xGk/ii8ktHaSC4maSGRlKl0J64PSupK0nc5V7yRu+GVjtpllaFZmIGFYZBrtU8oqrm22c7sJwAfavOtNtbty7Ws9xbOg3eYXUBucYweSfavQdE1nV7nTLq0aSF9RtiDGTGCHGOf8a87EQ969z28PU0tY7v4c24i8UrDPCwivbd4mVh2xn+lZPiPwDp2meKEsIIXaIRh3OepLHmsPwNP4il8RQahcXl2zxXHTy12HAycqvIXtu969R8TOs/iy4kfO1Akar3GBk/hkn9aEuSFjlrSc6nN0t+Rhp8PNFMakWPUdd/WiuqiEZjXMcmcdqK3TVjgcpXJfEcdzc6feWkM8h86Jk27fVSP618naoFttYgMasAFwQw7g4NfWN3fMLhlMrHOMDbXi/wAa/Dumaeuna3YxeRc3dy8dwik7WJXduA6A5Bzjrmt95hSnyq3oc/pd1BMgjCgN3OOaueB57NNenuNRa4CKQzCKFnzH0JGPTiuY0+WR4ZpYsgxgbtoyfwrrPCeoXNuu1LdFV3J+ecKz8dDXDUjy3Pcg+Zqx6gI4tKkaa0IdH+7sGMn1BHat7UzJdakZGjMbNIcEjqML/wCzbqp+D7uOa3ubbUbMxNtDQySEHIJAIyPqKg03xMur+Ir2YOrRJOyQ4HARTgf4/jWS0jucldtyatt1+46mKCQRL85HHTHSirqX6FAQVor0Eo23PIbd9jjr+9MUjt5ozjoR1ryP4vawdWsdOst3Mdwzgeh2Yp174t1G0CnUZ1CsOcryfpXC65q0+q6vFLJGY4V+4rdT7mq+1c6KdPTUyrS/m0242TAgdx6ivQ/CXirSotxvCA/8HIGPX8a5ubTIr62DlQSo7VveEvCth54kuoGkZvului1y1p0pRvLc9OjCpGVlsewRX+n6l4au57OFrcpp807Pv+ZyqNtx6DODxXD/AA8kKwKzSAcDqa73whZw3Op/Y5UVoZrd4pEYZDKVxj6VyeqeHbTSryaHR5pLMqxHln94gPt3A/OueM48mvcmdOTqOMex3UepJtw0qDB7GivI5G1yKQqs0Dj+9uIz+dFXeP8AMc/sJ/ys4u3iaeQ3eoTPczY+83b2A6Cq5UXt35uNqrwBRRW/M+Zs6LJJJG5pCZbb2b5SK6ezkNjIkQ5O7aDmiivPq/Ed1H4Tu9Ou205ftkZYMqkcVymo6619qEjxRbXY5Jdv8KKKy6DglzNlK6i1BpQwu1QFcgBKKKKZqf/Z\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3333/artistas/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"artistas",
+								"1"
+							]
+						},
+						"description": "Alterando um artista"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3333/artistas/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"artistas",
+								"1"
+							]
+						},
+						"description": "Deletando um artista"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "bairros",
+			"item": [
+				{
+					"name": "List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3333/bairros/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"bairros",
+								""
+							]
+						},
+						"description": "Listando todos os bairros"
+					},
+					"response": []
+				},
+				{
+					"name": "Get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3333/bairros/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"bairros",
+								"1"
+							]
+						},
+						"description": "Listando um bairro"
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\t{\r\n        \"id\": null,\r\n        \"nome\": \"Bairro Inserido\",\r\n        \"cidade\": {\r\n            \"id\": 1,\r\n            \"nome\": \"Alegre\",\r\n            \"uf\": {\r\n                \"sigla\": \"ES\",\r\n                \"nome\": \"Espírito Santo\"\r\n            }\r\n        }\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3333/bairros",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"bairros"
+							]
+						},
+						"description": "Inserindo um bairro"
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\t{\r\n        \"id\": 2,\r\n        \"nome\": \"Bairro Alterado\",\r\n        \"cidade\": {\r\n            \"id\": 1,\r\n            \"nome\": \"Alegre\",\r\n            \"uf\": {\r\n                \"sigla\": \"ES\",\r\n                \"nome\": \"Espírito Santo\"\r\n            }\r\n        }\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3333/bairros/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"bairros",
+								"2"
+							]
+						},
+						"description": "Alterando um bairro"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3333/bairros/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"bairros",
+								"4"
+							]
+						},
+						"description": "Deletando um bairro"
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "cidades",
+			"item": [
+				{
+					"name": "List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3333/cidades/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"cidades",
+								""
+							]
+						},
+						"description": "Listando todas as cidades"
+					},
+					"response": []
+				},
+				{
+					"name": "Get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3333/cidades/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"cidades",
+								"1"
+							]
+						},
+						"description": "Listando uma cidade"
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": null,\r\n    \"nome\": \"Cidade Inserida\",\r\n    \"uf\": {\r\n        \"id\": 1\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3333/cidades",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"cidades"
+							]
+						},
+						"description": "Inserindo uma cidade"
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1,\r\n    \"nome\": \"Cidade Alterada\",\r\n    \"uf\": {\r\n        \"id\": 1,\r\n        \"sigla\": \"ES\",\r\n        \"nome\": \"Espírito Santo\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3333/cidades/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"cidades",
+								"1"
+							]
+						},
+						"description": "Alterando uma cidade"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3333/cidades/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"cidades",
+								"3"
+							]
+						},
+						"description": "Deletando uma cidade"
+					},
+					"response": []
+				},
+				{
+					"name": "List By Uf",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3333/cidades/findByUf/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"cidades",
+								"findByUf",
+								"1"
+							]
+						},
+						"description": "Listando cidades por UF"
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "clientes",
+			"item": [
+				{
+					"name": "List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3333/clientes/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"clientes",
+								""
+							]
+						},
+						"description": "Listando todos clientes"
+					},
+					"response": []
+				},
+				{
+					"name": "Get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3333/clientes/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"clientes",
+								"1"
+							]
+						},
+						"description": "Selecionando um cliente"
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n        \"id\": null,\r\n        \"nome\": \"Cliente Inserido\",\r\n        \"cpf\": \"333.333.333-33\",\r\n        \"rua\": \"Rua x\",\r\n        \"numero\": \"15\",\r\n        \"bairro\": {\r\n            \"id\": 3,\r\n            \"nome\": \"Maria Ortiz\",\r\n            \"cidade\": {\r\n                \"id\": 2,\r\n                \"nome\": \"Cachoeiro de Itapemirim\",\r\n                \"uf\": {\r\n                    \"sigla\": \"ES\",\r\n                    \"nome\": \"Espírito Santo\"\r\n                }\r\n            }\r\n        },\r\n        \"debito\": 0.0,\r\n        \"telefones\": [\r\n            {\r\n                \"numero\": \"(22) 2222-2223\"\r\n            },\r\n            {\r\n                \"numero\": \"(33) 3333-3334\"\r\n            }\r\n        ],\r\n        \"nascimento\": \"1980-10-10\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3333/clientes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"clientes"
+							]
+						},
+						"description": "Inserindo um cliente"
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n        \"id\": 1,\r\n        \"nome\": \"Cliente 1 Alterado\",\r\n        \"cpf\": \"333.333.333-33\",\r\n        \"rua\": \"Rua x\",\r\n        \"numero\": \"15\",\r\n        \"bairro\": {\r\n            \"id\": 3,\r\n            \"nome\": \"Maria Ortiz\",\r\n            \"cidade\": {\r\n                \"id\": 2,\r\n                \"nome\": \"Cachoeiro de Itapemirim\",\r\n                \"uf\": {\r\n                    \"sigla\": \"ES\",\r\n                    \"nome\": \"Espírito Santo\"\r\n                }\r\n            }\r\n        },\r\n        \"debito\": 0.0,\r\n        \"telefones\": [\r\n            {\r\n                \"id\": 1,\r\n                \"numero\": \"(11) 1111-1112\"\r\n            },\r\n            {\r\n                \"numero\": \"(12) 3456-7890\"\r\n            }\r\n        ],\r\n        \"nascimento\": \"1980-10-10\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3333/clientes/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"clientes",
+								"1"
+							]
+						},
+						"description": "Alterando um cliente"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3333/clientes/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"clientes",
+								"1"
+							]
+						},
+						"description": "Deletando um cliente"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "devolucoes",
+			"item": [
+				{
+					"name": "List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3333/devolucoes/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"devolucoes",
+								""
+							]
+						},
+						"description": "Listando todas as devoluções"
+					},
+					"response": []
+				},
+				{
+					"name": "Get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3333/devolucoes/1/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"devolucoes",
+								"1",
+								"1"
+							]
+						},
+						"description": "Selecionando uma devolução"
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"data\": \"2023-04-12\",\r\n    \"emprestimoId\": 2,\r\n    \"fitaId\": 3\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3333/devolucoes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"devolucoes"
+							]
+						},
+						"description": "Inserindo uma devolução"
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"data\": \"2023-12-30\",\r\n    \"emprestimoId\": 2,\r\n    \"fitaId\": 3\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3333/devolucoes/1/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"devolucoes",
+								"1",
+								"1"
+							]
+						},
+						"description": "Alterando uma devolução"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3333/devolucoes/1/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"devolucoes",
+								"1",
+								"1"
+							]
+						},
+						"description": "Deletando uma devolução"
+					},
+					"response": []
+				},
+				{
+					"name": "List By Cliente",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3333/devolucoes/findByClienteAndPeriodo/1/2023-01-01/2023-12-31",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"devolucoes",
+								"findByClienteAndPeriodo",
+								"1",
+								"2023-01-01",
+								"2023-12-31"
+							]
+						},
+						"description": "Buscar Devoluções por cliente em um determinado período de tempo"
+					},
+					"response": []
+				},
+				{
+					"name": "List Qtd By Cliente",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3333/devolucoes/findQuantidadeDevolucaoClienteByPeriodo/2023-01-01/2023-12-31",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"devolucoes",
+								"findQuantidadeDevolucaoClienteByPeriodo",
+								"2023-01-01",
+								"2023-12-31"
+							]
+						},
+						"description": "Relatório para retornar a quantidade de devoluções realizadas por todos os clientes entre um determinado período de tempo."
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "diretores",
+			"item": [
+				{
+					"name": "List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3333/diretores/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"diretores",
+								""
+							]
+						},
+						"description": "Listando todos os diretores"
+					},
+					"response": []
+				},
+				{
+					"name": "Get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3333/diretores/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"diretores",
+								"1"
+							]
+						},
+						"description": "Listando um diretor"
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": null,\r\n    \"nome\": \"Diretor Inserido\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3333/diretores",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"diretores"
+							]
+						},
+						"description": "Inserindo um diretor"
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n    \"id\": 1,\r\n    \"nome\": \"Diretor Alterado\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3333/diretores/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"diretores",
+								"1"
+							]
+						},
+						"description": "Alterando um diretor"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3333/diretores/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"diretores",
+								"4"
+							]
+						},
+						"description": "Deletando um diretor"
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "emprestimos",
+			"item": [
+				{
+					"name": "List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3333/emprestimos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"emprestimos"
+							]
+						},
+						"description": "Listar Empréstimos"
+					},
+					"response": []
+				},
+				{
+					"name": "Get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3333/emprestimos/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"emprestimos",
+								"1"
+							]
+						},
+						"description": "Selecionando um empréstimo"
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"id\": null,\r\n        \"data\": \"2023-04-13\",\r\n        \"valor\": 10.0,\r\n        \"cliente\": {\r\n            \"id\": 2,\r\n            \"nome\": \"Cliente José\",\r\n            \"cpf\": \"111.111.111-11\",\r\n            \"rua\": \"Rua José Figueiredo\",\r\n            \"numero\": 100,\r\n            \"bairro\": {\r\n                \"id\": 1,\r\n                \"nome\": \"Vila do Sul\",\r\n                \"cidade\": {\r\n                    \"id\": 1,\r\n                    \"nome\": \"Alegre\",\r\n                    \"uf\": {\r\n                        \"id\": 1,\r\n                        \"sigla\": \"ES\",\r\n                        \"nome\": \"Espírito Santo\"\r\n                    }\r\n                }\r\n            },\r\n            \"debito\": 0.0,\r\n            \"nascimento\": \"1981-01-01\",\r\n            \"telefones\": [\r\n                \"28 7777-8888\",\r\n                \"28 5555-6666\"\r\n            ]\r\n        },\r\n        \"itens\": [\r\n            {\r\n                \"valor\": 10.0,\r\n                \"entrega\": \"2023-04-16\",\r\n                \"fita\": {\r\n                    \"id\": 5,\r\n                    \"danificada\": false,\r\n                    \"disponivel\": true,\r\n                    \"filme\": {\r\n                        \"id\": 3,\r\n                        \"titulo\": \"Avatar\",\r\n                        \"genero\": \"Ficção Científica\",\r\n                        \"duracao\": \"3:00\",\r\n                        \"tipoDeFilme\": {\r\n                            \"id\": 3,\r\n                            \"nome\": \"Promoção C\",\r\n                            \"prazo\": 3,\r\n                            \"preco\": 15.0\r\n                        },\r\n                        \"diretores\": [\r\n                            {\r\n                                \"id\": 2,\r\n                                \"nome\": \"James Cameron\"\r\n                            },\r\n                            {\r\n                                \"id\": 3,\r\n                                \"nome\": \"Jon Landau\"\r\n                            }\r\n                        ],\r\n                        \"participacoes\": [\r\n                            {\r\n                                \"id\": 7,\r\n                                \"personagem\": \"Jake Sully\",\r\n                                \"artista\": {\r\n                                    \"id\": 6,\r\n                                    \"nome\": \"Sam Worthington\"\r\n                                }\r\n                            },\r\n                            {\r\n                                \"id\": 8,\r\n                                \"personagem\": \"Neytiri\",\r\n                                \"artista\": {\r\n                                    \"id\": 7,\r\n                                    \"nome\": \"Zoë Saldaña\"\r\n                                }\r\n                            }\r\n                        ]\r\n                    }\r\n                }\r\n            }\r\n        ]\r\n    }"
+						},
+						"url": {
+							"raw": "http://localhost:3333/emprestimos/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"emprestimos",
+								""
+							]
+						},
+						"description": "Inserir Empréstimo\n\nInserção de um empréstimo possível.\nPara a fita 5."
+					},
+					"response": []
+				},
+				{
+					"name": "Create Cliente Multa",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"id\": null,\n        \"data\": \"2023-04-13\",\n        \"valor\": 10.0,\n        \"cliente\": {\n            \"id\": 1,\n            \"nome\": \"Cliente João\",\n            \"cpf\": \"111.111.111-11\",\n            \"rua\": \"Rua José Figueiredo\",\n            \"numero\": 100,\n            \"bairro\": {\n                \"id\": 1,\n                \"nome\": \"Vila do Sul\",\n                \"cidade\": {\n                    \"id\": 1,\n                    \"nome\": \"Alegre\",\n                    \"uf\": {\n                        \"id\": 1,\n                        \"sigla\": \"ES\",\n                        \"nome\": \"Espírito Santo\"\n                    }\n                }\n            },\n            \"debito\": 0.0,\n            \"nascimento\": \"1981-01-01\",\n            \"telefones\": [\n                \"28 7777-8888\",\n                \"28 5555-6666\"\n            ]\n        },\n        \"itens\": [\n            {\n                \"valor\": 10.0,\n                \"entrega\": \"2023-04-16\",\n                \"fita\": {\n                    \"id\": 5,\n                    \"danificada\": false,\n                    \"disponivel\": false,\n                    \"filme\": {\n                        \"id\": 3,\n                        \"titulo\": \"Avatar\",\n                        \"genero\": \"Ficção Científica\",\n                        \"duracao\": \"3:00\",\n                        \"tipoDeFilme\": {\n                            \"id\": 3,\n                            \"nome\": \"Promoção C\",\n                            \"prazo\": 3,\n                            \"preco\": 15.0\n                        },\n                        \"diretores\": [\n                            {\n                                \"id\": 2,\n                                \"nome\": \"James Cameron\"\n                            },\n                            {\n                                \"id\": 3,\n                                \"nome\": \"Jon Landau\"\n                            }\n                        ],\n                        \"participacoes\": [\n                            {\n                                \"id\": 7,\n                                \"personagem\": \"Jake Sully\",\n                                \"artista\": {\n                                    \"id\": 6,\n                                    \"nome\": \"Sam Worthington\"\n                                }\n                            },\n                            {\n                                \"id\": 8,\n                                \"personagem\": \"Neytiri\",\n                                \"artista\": {\n                                    \"id\": 7,\n                                    \"nome\": \"Zoë Saldaña\"\n                                }\n                            }\n                        ]\n                    }\n                }\n            }\n        ]\n    }"
+						},
+						"url": {
+							"raw": "http://localhost:3333/emprestimos/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"emprestimos",
+								""
+							]
+						},
+						"description": "Inserir Empréstimo\n\nInserção de um empréstimo para um cliente com multas anteriores.\nNão deve ser possível inserir o empréstimo."
+					},
+					"response": []
+				},
+				{
+					"name": "Create Fita Indisponível",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"id\": null,\n        \"data\": \"2023-04-13\",\n        \"valor\": 10.0,\n        \"cliente\": {\n            \"id\": 2,\n            \"nome\": \"Cliente José\",\n            \"cpf\": \"111.111.111-11\",\n            \"rua\": \"Rua José Figueiredo\",\n            \"numero\": 100,\n            \"bairro\": {\n                \"id\": 1,\n                \"nome\": \"Vila do Sul\",\n                \"cidade\": {\n                    \"id\": 1,\n                    \"nome\": \"Alegre\",\n                    \"uf\": {\n                        \"id\": 1,\n                        \"sigla\": \"ES\",\n                        \"nome\": \"Espírito Santo\"\n                    }\n                }\n            },\n            \"debito\": 0.0,\n            \"nascimento\": \"1981-01-01\",\n            \"telefones\": [\n                \"28 7777-8888\",\n                \"28 5555-6666\"\n            ]\n        },\n        \"itens\": [\n            {\n                \"valor\": 10.0,\n                \"entrega\": \"2023-04-16\",\n                \"fita\": {\n                    \"id\": 1,\n                    \"danificada\": false,\n                    \"disponivel\": false,\n                    \"filmeId\": 1\n                }\n            }\n        ]\n    }"
+						},
+						"url": {
+							"raw": "http://localhost:3333/emprestimos/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"emprestimos",
+								""
+							]
+						},
+						"description": "Inserir Empréstimo\n\nInserção de um empréstimo contendo fitas indisponíveis.  \nNão deve ser possível inserir o empréstimo."
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 2,\r\n    \"data\": \"2020-04-13\",\r\n    \"valor\": 10.0,\r\n    \"cliente\": {\r\n        \"id\": 2,\r\n        \"nome\": \"Cliente José\",\r\n        \"cpf\": \"111.111.111-11\",\r\n        \"rua\": \"Rua José Figueiredo\",\r\n        \"numero\": 100,\r\n        \"bairro\": {\r\n            \"id\": 1,\r\n            \"nome\": \"Vila do Sul\",\r\n            \"cidade\": {\r\n                \"id\": 1,\r\n                \"nome\": \"Alegre\",\r\n                \"uf\": {\r\n                    \"id\": 1,\r\n                    \"sigla\": \"ES\",\r\n                    \"nome\": \"Espírito Santo\"\r\n                }\r\n            }\r\n        },\r\n        \"debito\": 0.0,\r\n        \"nascimento\": \"1981-01-01\",\r\n        \"telefones\": [\r\n            \"28 7777-8888\",\r\n            \"28 5555-6666\"\r\n        ]\r\n    },\r\n    \"itens\": [\r\n        {\r\n            \"valor\": 10.0,\r\n            \"entrega\": \"2023-04-16\",\r\n            \"fita\": {\r\n                \"id\": 3,\r\n                \"danificada\": false,\r\n                \"disponivel\": false,\r\n                \"filme\": {\r\n                    \"id\": 3,\r\n                    \"titulo\": \"Avatar\",\r\n                    \"genero\": \"Ficção Científica\",\r\n                    \"duracao\": \"03:00\",\r\n                    \"imagem\": \"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\",\r\n                    \"tipoDeFilme\": {\r\n                        \"id\": 3,\r\n                        \"nome\": \"Promoção C\",\r\n                        \"prazo\": 3,\r\n                        \"preco\": 15.0\r\n                    },\r\n                    \"diretores\": [\r\n                        {\r\n                            \"id\": 2,\r\n                            \"nome\": \"James Cameron\"\r\n                        },\r\n                        {\r\n                            \"id\": 3,\r\n                            \"nome\": \"Jon Landau\"\r\n                        }\r\n                    ],\r\n                    \"participacoes\": [\r\n                        {\r\n                            \"id\": 7,\r\n                            \"personagem\": \"Jake Sully\",\r\n                            \"artista\": {\r\n                                \"id\": 6,\r\n                                \"nome\": \"Sam Worthington\",\r\n                                \"imagem\": \"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\"\r\n                            }\r\n                        },\r\n                        {\r\n                            \"id\": 8,\r\n                            \"personagem\": \"Neytiri\",\r\n                            \"artista\": {\r\n                                \"id\": 7,\r\n                                \"nome\": \"Zoë Saldaña\",\r\n                                \"imagem\": \"/9j/4AAQSkZJRgABAQEAYABgAAD/4REaRXhpZgAATU0AKgAAAAgACAEOAAIAAAAQAAAIegExAAIAAAAtAAAIigE7AAIAAAABAAAAAIKYAAIAAAAZAAAIuIdpAAQAAAABAAAI0pybAAEAAAAgAAAQ8pydAAEAAAACAAAAAOocAAcAAAgMAAAAbgAAAAAc6gAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAwMzgwNzY3XzAwMDAwOABCQUdIRUVSQSAvIFBST1BJWE87IEpwZWdNZXRhZGF0YVRvb2xraXQgMS4xMQAAQmFja2dyaWQgVVNBIC8gQmVzdGltYWdlAAAAAeocAAcAAAgMAAAI5AAAAAAc6gAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMAAwADMAOAAwADcANgA3AF8AMAAwADAAMAAwADgAAAD/4QyVaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLwA8P3hwYWNrZXQgYmVnaW49J++7vycgaWQ9J1c1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCc/Pg0KPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyI+PHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj48cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0idXVpZDpmYWY1YmRkNS1iYTNkLTExZGEtYWQzMS1kMzNkNzUxODJmMWIiIHhtbG5zOmRjPSJodHRwOi8vcHVybC5vcmcvZGMvZWxlbWVudHMvMS4xLyIvPjxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSJ1dWlkOmZhZjViZGQ1LWJhM2QtMTFkYS1hZDMxLWQzM2Q3NTE4MmYxYiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIj48eG1wOkNyZWF0b3JUb29sPkJBR0hFRVJBIC8gUFJPUElYTzsgSnBlZ01ldGFkYXRhVG9vbGtpdCAxLjExPC94bXA6Q3JlYXRvclRvb2w+PC9yZGY6RGVzY3JpcHRpb24+PHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9InV1aWQ6ZmFmNWJkZDUtYmEzZC0xMWRhLWFkMzEtZDMzZDc1MTgyZjFiIiB4bWxuczpkYz0iaHR0cDovL3B1cmwub3JnL2RjL2VsZW1lbnRzLzEuMS8iPjxkYzpyaWdodHM+PHJkZjpBbHQgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj48cmRmOmxpIHhtbDpsYW5nPSJ4LWRlZmF1bHQiPkJhY2tncmlkIFVTQSAvIEJlc3RpbWFnZTwvcmRmOmxpPjwvcmRmOkFsdD4NCgkJCTwvZGM6cmlnaHRzPjxkYzp0aXRsZT48cmRmOkFsdCB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPjxyZGY6bGkgeG1sOmxhbmc9IngtZGVmYXVsdCI+MDAzODA3NjdfMDAwMDA4PC9yZGY6bGk+PC9yZGY6QWx0Pg0KCQkJPC9kYzp0aXRsZT48ZGM6ZGVzY3JpcHRpb24+PHJkZjpBbHQgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj48cmRmOmxpIHhtbDpsYW5nPSJ4LWRlZmF1bHQiPjAwMzgwNzY3XzAwMDAwODwvcmRmOmxpPjwvcmRmOkFsdD4NCgkJCTwvZGM6ZGVzY3JpcHRpb24+PC9yZGY6RGVzY3JpcHRpb24+PC9yZGY6UkRGPjwveDp4bXBtZXRhPg0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICA8P3hwYWNrZXQgZW5kPSd3Jz8+/9sAQwAFBAQFBAMFBQQFBgYFBggOCQgHBwgRDA0KDhQRFRQTERMTFhgfGxYXHhcTExslHB4gISMjIxUaJikmIikfIiMi/9sAQwEGBgYIBwgQCQkQIhYTFiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIi/8AAEQgAXQBGAwEiAAIRAQMRAf/EAB8AAAEFAQEBAQEBAAAAAAAAAAABAgMEBQYHCAkKC//EALUQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5+v/EAB8BAAMBAQEBAQEBAQEAAAAAAAABAgMEBQYHCAkKC//EALURAAIBAgQEAwQHBQQEAAECdwABAgMRBAUhMQYSQVEHYXETIjKBCBRCkaGxwQkjM1LwFWJy0QoWJDThJfEXGBkaJico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\"\r\n                            }\r\n                        }\r\n                    ]\r\n                }\r\n            }\r\n        },\r\n        {\r\n            \"valor\": 10.0,\r\n            \"entrega\": \"2023-04-20\",\r\n            \"fita\": {\r\n                \"id\": 4,\r\n                \"danificada\": false,\r\n                \"disponivel\": false,\r\n                \"filme\": {\r\n                    \"id\": 3,\r\n                    \"titulo\": \"Avatar\",\r\n                    \"genero\": \"Ficção Científica\",\r\n                    \"duracao\": \"03:00\",\r\n                    \"imagem\": \"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\",\r\n                    \"tipoDeFilme\": {\r\n                        \"id\": 3,\r\n                        \"nome\": \"Promoção C\",\r\n                        \"prazo\": 3,\r\n                        \"preco\": 15.0\r\n                    },\r\n                    \"diretores\": [\r\n                        {\r\n                            \"id\": 2,\r\n                            \"nome\": \"James Cameron\"\r\n                        },\r\n                        {\r\n                            \"id\": 3,\r\n                            \"nome\": \"Jon Landau\"\r\n                        }\r\n                    ],\r\n                    \"participacoes\": [\r\n                        {\r\n                            \"id\": 7,\r\n                            \"personagem\": \"Jake Sully\",\r\n                            \"artista\": {\r\n                                \"id\": 6,\r\n                                \"nome\": \"Sam Worthington\",\r\n                                \"imagem\": \"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\"\r\n                            }\r\n                        },\r\n                        {\r\n                            \"id\": 8,\r\n                            \"personagem\": \"Neytiri\",\r\n                            \"artista\": {\r\n                                \"id\": 7,\r\n                                \"nome\": \"Zoë Saldaña\",\r\n                                \"imagem\": \"/9j/4AAQSkZJRgABAQEAYABgAAD/4REaRXhpZgAATU0AKgAAAAgACAEOAAIAAAAQAAAIegExAAIAAAAtAAAIigE7AAIAAAABAAAAAIKYAAIAAAAZAAAIuIdpAAQAAAABAAAI0pybAAEAAAAgAAAQ8pydAAEAAAACAAAAAOocAAcAAAgMAAAAbgAAAAAc6gAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAwMzgwNzY3XzAwMDAwOABCQUdIRUVSQSAvIFBST1BJWE87IEpwZWdNZXRhZGF0YVRvb2xraXQgMS4xMQAAQmFja2dyaWQgVVNBIC8gQmVzdGltYWdlAAAAAeocAAcAAAgMAAAI5AAAAAAc6gAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMAAwADMAOAAwADcANgA3AF8AMAAwADAAMAAwADgAAAD/4QyVaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLwA8P3hwYWNrZXQgYmVnaW49J++7vycgaWQ9J1c1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCc/Pg0KPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyI+PHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj48cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0idXVpZDpmYWY1YmRkNS1iYTNkLTExZGEtYWQzMS1kMzNkNzUxODJmMWIiIHhtbG5zOmRjPSJodHRwOi8vcHVybC5vcmcvZGMvZWxlbWVudHMvMS4xLyIvPjxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSJ1dWlkOmZhZjViZGQ1LWJhM2QtMTFkYS1hZDMxLWQzM2Q3NTE4MmYxYiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIj48eG1wOkNyZWF0b3JUb29sPkJBR0hFRVJBIC8gUFJPUElYTzsgSnBlZ01ldGFkYXRhVG9vbGtpdCAxLjExPC94bXA6Q3JlYXRvclRvb2w+PC9yZGY6RGVzY3JpcHRpb24+PHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9InV1aWQ6ZmFmNWJkZDUtYmEzZC0xMWRhLWFkMzEtZDMzZDc1MTgyZjFiIiB4bWxuczpkYz0iaHR0cDovL3B1cmwub3JnL2RjL2VsZW1lbnRzLzEuMS8iPjxkYzpyaWdodHM+PHJkZjpBbHQgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj48cmRmOmxpIHhtbDpsYW5nPSJ4LWRlZmF1bHQiPkJhY2tncmlkIFVTQSAvIEJlc3RpbWFnZTwvcmRmOmxpPjwvcmRmOkFsdD4NCgkJCTwvZGM6cmlnaHRzPjxkYzp0aXRsZT48cmRmOkFsdCB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPjxyZGY6bGkgeG1sOmxhbmc9IngtZGVmYXVsdCI+MDAzODA3NjdfMDAwMDA4PC9yZGY6bGk+PC9yZGY6QWx0Pg0KCQkJPC9kYzp0aXRsZT48ZGM6ZGVzY3JpcHRpb24+PHJkZjpBbHQgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj48cmRmOmxpIHhtbDpsYW5nPSJ4LWRlZmF1bHQiPjAwMzgwNzY3XzAwMDAwODwvcmRmOmxpPjwvcmRmOkFsdD4NCgkJCTwvZGM6ZGVzY3JpcHRpb24+PC9yZGY6RGVzY3JpcHRpb24+PC9yZGY6UkRGPjwveDp4bXBtZXRhPg0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICA8P3hwYWNrZXQgZW5kPSd3Jz8+/9sAQwAFBAQFBAMFBQQFBgYFBggOCQgHBwgRDA0KDhQRFRQTERMTFhgfGxYXHhcTExslHB4gISMjIxUaJikmIikfIiMi/9sAQwEGBgYIBwgQCQkQIhYTFiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIi/8AAEQgAXQBGAwEiAAIRAQMRAf/EAB8AAAEFAQEBAQEBAAAAAAAAAAABAgMEBQYHCAkKC//EALUQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5+v/EAB8BAAMBAQEBAQEBAQEAAAAAAAABAgMEBQYHCAkKC//EALURAAIBAgQEAwQHBQQEAAECdwABAgMRBAUhMQYSQVEHYXETIjKBCBRCkaGxwQkjM1LwFWJy0QoWJDThJfEXGBkaJico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\"\r\n                            }\r\n                        }\r\n                    ]\r\n                }\r\n            }\r\n        }\r\n    ]\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3333/emprestimos/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"emprestimos",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:3333/emprestimos/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"emprestimos",
+								"2"
+							]
+						},
+						"description": "Deletar Empréstimo\n\nRemoção possível de um empréstimo."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Error",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:3333/emprestimos/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"emprestimos",
+								"1"
+							]
+						},
+						"description": "Deletar Empréstimo\n\nRemoção de um empréstimo que possui itens associados a devoluções ou multas. Portanto, não será possível."
+					},
+					"response": []
+				},
+				{
+					"name": "List By Cliente",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3333/emprestimos/findByCliente/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"emprestimos",
+								"findByCliente",
+								"1"
+							]
+						},
+						"description": "Buscar Empréstimo"
+					},
+					"response": []
+				},
+				{
+					"name": "List By Cliente and Periodo",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3333/emprestimos/findByClienteAndPeriodo/1/2023-01-01/2023-12-31",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"emprestimos",
+								"findByClienteAndPeriodo",
+								"1",
+								"2023-01-01",
+								"2023-12-31"
+							]
+						},
+						"description": "Buscar Empréstimos por clientes em um determinado período"
+					},
+					"response": []
+				},
+				{
+					"name": "List Total By Cliente",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3333/emprestimos/findTotaisAndQuantidadesEmprestimosOfClientesByPeriodo/2023-01-01/2023-12-31",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"emprestimos",
+								"findTotaisAndQuantidadesEmprestimosOfClientesByPeriodo",
+								"2023-01-01",
+								"2023-12-31"
+							]
+						},
+						"description": "Relatório para retornar o valor total de empréstimos realizados por um determinado cliente entre um determinado período de tempo."
+					},
+					"response": []
+				},
+				{
+					"name": "List By Bairro",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3333/emprestimos/findQuantidadesEmprestimosOfBairrosByPeriodo/2023-01-01/2023-12-31",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"emprestimos",
+								"findQuantidadesEmprestimosOfBairrosByPeriodo",
+								"2023-01-01",
+								"2023-12-31"
+							]
+						},
+						"description": "Relatório para retornar as quantidades de empréstimos realizados por bairros"
+					},
+					"response": []
+				},
+				{
+					"name": "List By Filme",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3333/emprestimos/findQuantidadesEmprestimosOfFilmesByPeriodo/2023-01-01/2023-12-31",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"emprestimos",
+								"findQuantidadesEmprestimosOfFilmesByPeriodo",
+								"2023-01-01",
+								"2023-12-31"
+							]
+						},
+						"description": "Relatório para retornar as quantidades de empréstimos realizados por filmes em um determinado período."
+					},
+					"response": []
+				},
+				{
+					"name": "List Total Ano Mês",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3333/emprestimos/findTotaisAnoMes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"emprestimos",
+								"findTotaisAnoMes"
+							]
+						},
+						"description": "Buscar Empréstimo"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "filmes",
+			"item": [
+				{
+					"name": "List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3333/filmes/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"filmes",
+								""
+							]
+						},
+						"description": "Listando todos os filmes"
+					},
+					"response": []
+				},
+				{
+					"name": "Get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3333/filmes/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"filmes",
+								"4"
+							]
+						},
+						"description": "Listando um filme"
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "",
+								"disabled": true
+							},
+							{
+								"key": "Content-Type",
+								"value": "",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"imagem\": \"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\",\r\n    \"id\": null,\r\n    \"titulo\": \"Filme Inserido\",\r\n    \"genero\": \"Drama\",\r\n    \"duracao\": \"03:00\",\r\n    \"tipoDeFilmeId\": 2,\r\n    \"tipoDeFilme\": {\r\n        \"id\": 2,\r\n        \"nome\": \"Promoção B\",\r\n        \"prazo\": 2,\r\n        \"preco\": 10\r\n    },\r\n    \"diretores\": [\r\n        {\r\n            \"id\": 1,\r\n            \"nome\": \"Sheldon Lettich\"\r\n        },\r\n        {\r\n            \"id\": 4,\r\n            \"nome\": \"Quentin Tarantino\"\r\n        }\r\n    ],\r\n    \"participacoes\": [\r\n        {\r\n            \"personagem\": \"Alex 1\",\r\n            \"artista\": {\r\n                \"id\": 1,\r\n                \"nome\": \"Jean Claude Van Damme\"\r\n            }\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3333/filmes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"filmes"
+							]
+						},
+						"description": "Inserindo um filme\nEsta inserção envia um objeto Filme com atributo imagem preenchido com String na Base64"
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "",
+								"disabled": true
+							},
+							{
+								"key": "Content-Type",
+								"value": "",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1,\r\n    \"titulo\": \"Filme Alterado\",\r\n    \"genero\": \"Drama\",\r\n    \"duracao\": \"03:00\",\r\n    \"imagem\": \"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\",\r\n    \"tipoDeFilme\": {\r\n        \"id\": 2,\r\n        \"nome\": \"Promoção B\",\r\n        \"prazo\": 2,\r\n        \"preco\": 10.0\r\n    },\r\n    \"diretores\": [\r\n            {\r\n                \"id\": 1,\r\n                \"nome\": \"Sheldon Lettich\"\r\n            },\r\n            {\r\n        \t\t\"id\": 4,\r\n        \t\t\"nome\": \"Quentin Tarantino\"\r\n    \t\t}\r\n        ],\r\n    \"participacoes\": [\r\n            {\r\n                \"id\": null,\r\n                \"personagem\": \"Alex 1\",\r\n                \"artista\": {\r\n                    \"id\": 1,\r\n                    \"nome\": \"Jean Claude Van Damme\",\r\n                    \"imagem\": \"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\"\r\n                }\r\n            },\r\n            {\r\n                \"id\": null,\r\n                \"personagem\": \"Alex 2\",\r\n                \"artista\": {\r\n                    \"id\": 1,\r\n                    \"nome\": \"Jean Claude Van Damme\",\r\n                    \"imagem\": \"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\"\r\n                }\r\n            }\r\n        ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3333/filmes/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"filmes",
+								"1"
+							]
+						},
+						"description": "Alterando um filme\nEsta alteração envia um objeto Filme com atributo imagem preenchido com String na Base64"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3333/filmes/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"filmes",
+								"1"
+							]
+						},
+						"description": "Deletando um filme"
+					},
+					"response": []
+				},
+				{
+					"name": "List By Tipo de Filme",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3333/filmes/findByTipoDeFilme/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"filmes",
+								"findByTipoDeFilme",
+								"2"
+							]
+						},
+						"description": "Buscar Empréstimo"
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "fitas",
+			"item": [
+				{
+					"name": "List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3333/fitas/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"fitas",
+								""
+							]
+						},
+						"description": "Listando todas as fitas"
+					},
+					"response": []
+				},
+				{
+					"name": "Get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3333/fitas/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"fitas",
+								"1"
+							]
+						},
+						"description": "Listando uma Fita"
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"id\": null,\r\n        \"danificada\": false,\r\n        \"disponivel\": true,\r\n        \"filme\": {\r\n            \"id\": 3,\r\n            \"titulo\": \"Avatar\",\r\n            \"genero\": \"Ficção Científica\",\r\n            \"duracao\": \"3:00\",\r\n            \"tipoDeFilme\": {\r\n                \"id\": 2,\r\n                \"nome\": \"Promoção B\",\r\n                \"prazo\": 2,\r\n                \"preco\": 10.0\r\n            },\r\n            \"diretores\": [\r\n                {\r\n                    \"id\": 2,\r\n                    \"nome\": \"James Cameron\"\r\n                },\r\n                {\r\n                    \"id\": 3,\r\n                    \"nome\": \"Jon Landau\"\r\n                }\r\n            ],\r\n            \"participacoes\": [\r\n                {\r\n                    \"id\": 7,\r\n                    \"personagem\": \"Jake Sully\",\r\n                    \"artista\": {\r\n                        \"id\": 6,\r\n                        \"nome\": \"Sam Worthington\"\r\n                    }\r\n                },\r\n                {\r\n                    \"id\": 8,\r\n                    \"personagem\": \"Neytiri\",\r\n                    \"artista\": {\r\n                        \"id\": 7,\r\n                        \"nome\": \"Zoë Saldaña\"\r\n                    }\r\n                }\r\n            ]\r\n        }\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3333/fitas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"fitas"
+							]
+						},
+						"description": "Inserindo um filme"
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\t{\r\n        \"id\": 4,\r\n        \"danificada\": true,\r\n        \"disponivel\": true,\r\n        \"filme\": {\r\n            \"id\": 3,\r\n            \"titulo\": \"Avatar\",\r\n            \"genero\": \"Ficção Científica\",\r\n            \"duracao\": \"3:00\",\r\n            \"tipoDeFilme\": {\r\n                \"id\": 2,\r\n                \"nome\": \"Promoção B\",\r\n                \"prazo\": 2,\r\n                \"preco\": 10.0\r\n            },\r\n            \"diretores\": [\r\n                {\r\n                    \"id\": 2,\r\n                    \"nome\": \"James Cameron\"\r\n                },\r\n                {\r\n                    \"id\": 3,\r\n                    \"nome\": \"Jon Landau\"\r\n                }\r\n            ],\r\n            \"participacoes\": [\r\n                {\r\n                    \"id\": 7,\r\n                    \"personagem\": \"Jake Sully\",\r\n                    \"artista\": {\r\n                        \"id\": 6,\r\n                        \"nome\": \"Sam Worthington\"\r\n                    }\r\n                },\r\n                {\r\n                    \"id\": 8,\r\n                    \"personagem\": \"Neytiri\",\r\n                    \"artista\": {\r\n                        \"id\": 7,\r\n                        \"nome\": \"Zoë Saldaña\"\r\n                    }\r\n                }\r\n            ]\r\n        }\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3333/fitas/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"fitas",
+								"4"
+							]
+						},
+						"description": "Alterando um filme"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3333/fitas/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"fitas",
+								"4"
+							]
+						},
+						"description": "Deletando uma fita"
+					},
+					"response": []
+				},
+				{
+					"name": "List By Danificada",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3333/fitas/findByDanificadaAndDisponivel/0/0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"fitas",
+								"findByDanificadaAndDisponivel",
+								"0",
+								"0"
+							]
+						},
+						"description": "Listando todas as fitas"
+					},
+					"response": []
+				},
+				{
+					"name": "List By Filme",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3333/fitas/findByFilme/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"fitas",
+								"findByFilme",
+								"3"
+							]
+						},
+						"description": "Buscar Empréstimo"
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "funcionarios",
+			"item": [
+				{
+					"name": "List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3333/funcionarios/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"funcionarios",
+								""
+							]
+						},
+						"description": "Listando todos clientes"
+					},
+					"response": []
+				},
+				{
+					"name": "Get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3333/funcionarios/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"funcionarios",
+								"1"
+							]
+						},
+						"description": "Selecionando um cliente"
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": null,\r\n    \"nome\": \"Funcionário Inserido\",\r\n    \"cpf\": \"333.333.333-33\",\r\n    \"rua\": \"Rua Dr. Brício Mesquita\",\r\n    \"numero\": 1,\r\n    \"login\": \"func1\",\r\n    \"senha\": \"123456\",\r\n    \"bairroId\": 3,\r\n    \"bairro\": {\r\n        \"id\": 3,\r\n        \"nome\": \"Maria Ortiz\",\r\n        \"cidadeId\": 2\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3333/funcionarios",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"funcionarios"
+							]
+						},
+						"description": "Inserindo um cliente"
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1,\r\n    \"nome\": \"Funcionário Alterado\",\r\n    \"cpf\": \"333.333.333-33\",\r\n    \"rua\": \"Rua Dr. Brício Mesquita\",\r\n    \"numero\": 1,\r\n    \"login\": \"func1\",\r\n    \"senha\": \"654321\",\r\n    \"bairroId\": 3,\r\n    \"bairro\": {\r\n        \"id\": 3,\r\n        \"nome\": \"Maria Ortiz\",\r\n        \"cidadeId\": 2,\r\n        \"cidade\": {\r\n            \"id\": 2,\r\n            \"nome\": \"Alegre\",\r\n            \"ufId\": 1,\r\n            \"uf\": {\r\n                \"id\": 1,\r\n                \"sigla\": \"ES\",\r\n                \"nome\": \"Espírito Santo\"\r\n            }\r\n        }\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3333/funcionarios/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"funcionarios",
+								"1"
+							]
+						},
+						"description": "Alterando um cliente"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3333/funcionarios/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"funcionarios",
+								"2"
+							]
+						},
+						"description": "Deletando um cliente"
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "gerentes",
+			"item": [
+				{
+					"name": "List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3333/gerentes/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"gerentes",
+								""
+							]
+						},
+						"description": "Listando todos clientes"
+					},
+					"response": []
+				},
+				{
+					"name": "Get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3333/gerentes/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"gerentes",
+								"1"
+							]
+						},
+						"description": "Selecionando um cliente"
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": null,\r\n    \"nome\": \"Gerente Inserido\",\r\n    \"cpf\": \"555.555.555-55\",\r\n    \"rua\": \"Rua Dr. Brício Mesquita\",\r\n    \"numero\": 1,\r\n    \"login\": \"ger3\",\r\n    \"senha\": \"123456\",\r\n    \"createdAt\": \"2023-02-25T00:05:07.967Z\",\r\n    \"updatedAt\": \"2023-02-25T00:05:07.967Z\",\r\n    \"bairroId\": 3,\r\n    \"bairro\": {\r\n        \"id\": 3,\r\n        \"nome\": \"Maria Ortiz\",\r\n        \"createdAt\": \"2023-02-25T00:05:07.885Z\",\r\n        \"updatedAt\": \"2023-02-25T00:05:07.885Z\",\r\n        \"cidadeId\": 2,\r\n        \"cidade\": {\r\n            \"id\": 2,\r\n            \"nome\": \"Alegre\",\r\n            \"createdAt\": \"2023-02-25T00:05:07.860Z\",\r\n            \"updatedAt\": \"2023-02-25T00:05:07.860Z\",\r\n            \"ufId\": 1,\r\n            \"uf\": {\r\n                \"id\": 1,\r\n                \"sigla\": \"ES\",\r\n                \"nome\": \"Espírito Santo\",\r\n                \"createdAt\": \"2023-02-25T00:05:07.839Z\",\r\n                \"updatedAt\": \"2023-02-25T00:05:07.839Z\"\r\n            }\r\n        }\r\n    },\r\n    \"telefones\": [\r\n        {\r\n            \"numero\": \"(77) 7777-7777\",\r\n            \"createdAt\": \"2023-02-25T00:05:07.978Z\",\r\n            \"updatedAt\": \"2023-02-25T00:05:07.978Z\",\r\n            \"clienteId\": null,\r\n            \"funcionarioId\": null,\r\n            \"gerenteId\": 1,\r\n            \"cliente\": null\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3333/gerentes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"gerentes"
+							]
+						},
+						"description": "Inserindo um cliente"
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1,\r\n    \"nome\": \"Gerente Alterado\",\r\n    \"cpf\": \"555.555.555-55\",\r\n    \"rua\": \"Rua Dr. Brício Mesquita\",\r\n    \"numero\": 1,\r\n    \"login\": \"ger1\",\r\n    \"senha\": \"654321\",\r\n    \"bairroId\": 3,\r\n    \"bairro\": {\r\n        \"id\": 3,\r\n        \"nome\": \"Maria Ortiz\",\r\n        \"cidadeId\": 2,\r\n        \"cidade\": {\r\n            \"id\": 2,\r\n            \"nome\": \"Alegre\",\r\n            \"ufId\": 1,\r\n            \"uf\": {\r\n                \"id\": 1,\r\n                \"sigla\": \"ES\",\r\n                \"nome\": \"Espírito Santo\"\r\n            }\r\n        }\r\n    },\r\n    \"telefones\": [\r\n        {\r\n            \"id\": 7,\r\n            \"numero\": \"(12) 1234-1234\",\r\n            \"clienteId\": null,\r\n            \"funcionarioId\": null,\r\n            \"gerenteId\": 1,\r\n            \"cliente\": null\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3333/gerentes/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"gerentes",
+								"1"
+							]
+						},
+						"description": "Alterando um cliente"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3333/gerentes/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"gerentes",
+								"2"
+							]
+						},
+						"description": "Deletando um cliente"
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "multas",
+			"item": [
+				{
+					"name": "List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3333/multas/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"multas",
+								""
+							]
+						},
+						"description": "Listando todas as multas"
+					},
+					"response": []
+				},
+				{
+					"name": "Get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3333/multas/1/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"multas",
+								"1",
+								"1"
+							]
+						},
+						"description": "Selecionando uma multa"
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"valor\": 10.0,\r\n    \"pago\": true,\r\n    \"emprestimoId\": 1,\r\n    \"fitaId\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3333/multas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"multas"
+							]
+						},
+						"description": "Inserindo uma devolução"
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"valor\": 20.0,\r\n    \"pago\": true,\r\n    \"emprestimoId\": 1,\r\n    \"fitaId\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3333/multas/1/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"multas",
+								"1",
+								"1"
+							]
+						},
+						"description": "Alterando uma devolução"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3333/multas/1/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"multas",
+								"1",
+								"1"
+							]
+						},
+						"description": "Deletando uma devolução"
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "reservas",
+			"item": [
+				{
+					"name": "List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3333/reservas/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"reservas",
+								""
+							]
+						},
+						"description": "Listando todos clientes"
+					},
+					"response": []
+				},
+				{
+					"name": "Get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3333/reservas/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"reservas",
+								"1"
+							]
+						},
+						"description": "Selecionando um cliente"
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"id\": null,\r\n        \"data\": \"2023-04-13\",\r\n        \"status\": 0,\r\n        \"cliente\": {\r\n            \"id\": 2,\r\n            \"nome\": \"Cliente José\",\r\n            \"cpf\": \"111.111.111-11\",\r\n            \"rua\": \"Rua Dr. Brício Mesquita\",\r\n            \"numero\": 100,\r\n            \"bairro\": {\r\n                \"id\": 3,\r\n                \"nome\": \"Maria Ortiz\",\r\n                \"cidade\": {\r\n                    \"id\": 2,\r\n                    \"nome\": \"Cachoeiro de Itapemirim\",\r\n                    \"uf\": {\r\n                        \"sigla\": \"ES\",\r\n                        \"nome\": \"Espírito Santo\"\r\n                    }\r\n                }\r\n            },\r\n            \"debito\": 5.0,\r\n            \"telefone\": \"28 1111-2222\",\r\n            \"nascimento\": \"1980-01-01\"\r\n        },\r\n        \"fita\": {\r\n        \"id\": 3,\r\n        \"danificada\": false,\r\n        \"disponivel\": true,\r\n        \"filme\": {\r\n            \"id\": 3,\r\n            \"titulo\": \"Avatar\",\r\n            \"genero\": \"Ficção Científica\",\r\n            \"duracao\": \"3:00\",\r\n            \"tipoDeFilme\": {\r\n                \"id\": 2,\r\n                \"nome\": \"Promoção B\",\r\n                \"prazo\": 2,\r\n                \"preco\": 10.0\r\n            },\r\n            \"diretores\": [\r\n                {\r\n                    \"id\": 2,\r\n                    \"nome\": \"James Cameron\"\r\n                },\r\n                {\r\n                    \"id\": 3,\r\n                    \"nome\": \"Jon Landau\"\r\n                }\r\n            ],\r\n            \"participacoes\": [\r\n                {\r\n                    \"id\": 7,\r\n                    \"personagem\": \"Jake Sully\",\r\n                    \"artista\": {\r\n                        \"id\": 6,\r\n                        \"nome\": \"Sam Worthington\"\r\n                    }\r\n                },\r\n                {\r\n                    \"id\": 8,\r\n                    \"personagem\": \"Neytiri\",\r\n                    \"artista\": {\r\n                        \"id\": 7,\r\n                        \"nome\": \"Zoë Saldaña\"\r\n                    }\r\n                }\r\n            ]\r\n        }\r\n    }\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3333/reservas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"reservas"
+							]
+						},
+						"description": "Inserindo um cliente"
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1,\r\n    \"data\": \"2023-12-31\",\r\n    \"status\": 0,\r\n    \"cliente\": {\r\n        \"id\": 1,\r\n        \"nome\": \"Cliente João\",\r\n        \"cpf\": \"111.111.111-11\",\r\n        \"rua\": \"Rua Dr. Brício Mesquita\",\r\n        \"numero\": 100,\r\n        \"bairro\": {\r\n            \"id\": 3,\r\n            \"nome\": \"Maria Ortiz\",\r\n            \"cidade\": {\r\n                \"id\": 2,\r\n                \"nome\": \"Cachoeiro de Itapemirim\",\r\n                \"uf\": {\r\n                    \"sigla\": \"ES\",\r\n                    \"nome\": \"Espírito Santo\"\r\n                }\r\n            }\r\n        },\r\n        \"debito\": 5.0,\r\n        \"telefone\": \"28 1111-2222\",\r\n        \"nascimento\": \"1980-01-01\"\r\n    },\r\n    \"fita\": {\r\n        \"id\": 1,\r\n        \"danificada\": false,\r\n        \"disponivel\": false,\r\n        \"filme\": {\r\n            \"id\": 1,\r\n            \"titulo\": \"Duplo Impacto\",\r\n            \"genero\": \"Ação\",\r\n            \"duracao\": \"2:00\",\r\n            \"tipoDeFilme\": {\r\n                \"id\": 1,\r\n                \"nome\": \"Promoção A\",\r\n                \"prazo\": 1,\r\n                \"preco\": 5.0\r\n            },\r\n            \"diretores\": [\r\n                {\r\n                    \"id\": 1,\r\n                    \"nome\": \"Sheldon Lettich\"\r\n                }\r\n            ],\r\n            \"participacoes\": [\r\n                {\r\n                    \"id\": 1,\r\n                    \"personagem\": \"Alex\",\r\n                    \"artista\": {\r\n                        \"id\": 1,\r\n                        \"nome\": \"Jean Claude Van Damme\"\r\n                    }\r\n                },\r\n                {\r\n                    \"id\": 2,\r\n                    \"personagem\": \"Chad\",\r\n                    \"artista\": {\r\n                        \"id\": 1,\r\n                        \"nome\": \"Jean Claude Van Damme\"\r\n                    }\r\n                },\r\n                {\r\n                    \"id\": 3,\r\n                    \"personagem\": \"Frank\",\r\n                    \"artista\": {\r\n                        \"id\": 2,\r\n                        \"nome\": \"Geoffrey Lewis\"\r\n                    }\r\n                },\r\n                {\r\n                    \"id\": 4,\r\n                    \"personagem\": \"Moon\",\r\n                    \"artista\": {\r\n                        \"id\": 3,\r\n                        \"nome\": \"Bolo Yeung\"\r\n                    }\r\n                }\r\n            ]\r\n        }\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3333/reservas/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"reservas",
+								"1"
+							]
+						},
+						"description": "Alterando um cliente"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3333/reservas/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"reservas",
+								"1"
+							]
+						},
+						"description": "Deletando um cliente"
+					},
+					"response": []
+				},
+				{
+					"name": "List By Fita and Status",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3333/reservas/findByFitaAndStatus/1/0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"reservas",
+								"findByFitaAndStatus",
+								"1",
+								"0"
+							]
+						},
+						"description": "Buscar Reservas por clientes em um determinado período"
+					},
+					"response": []
+				},
+				{
+					"name": "List By Cliente and Periodo",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3333/reservas/findByClienteAndPeriodo/1/2023-01-01/2023-12-31",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"reservas",
+								"findByClienteAndPeriodo",
+								"1",
+								"2023-01-01",
+								"2023-12-31"
+							]
+						},
+						"description": "Buscar Reservas por clientes em um determinado período"
+					},
+					"response": []
+				},
+				{
+					"name": "List Qtd By Cliente",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3333/reservas/findQuantidadesReservasOfClientesByPeriodo/2023-01-01/2023-12-31",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"reservas",
+								"findQuantidadesReservasOfClientesByPeriodo",
+								"2023-01-01",
+								"2023-12-31"
+							]
+						},
+						"description": "Relatório para retornar a quantidade de reservas realizadas por todos os clientes entre um determinado período de tempo."
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "tiposdefilmes",
+			"item": [
+				{
+					"name": "List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3333/tiposdefilme/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"tiposdefilme",
+								""
+							]
+						},
+						"description": "Listando todos os filmes"
+					},
+					"response": []
+				},
+				{
+					"name": "Get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3333/tiposdefilme/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"tiposdefilme",
+								"1"
+							]
+						},
+						"description": "Listando um filme"
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"id\": null,\r\n    \"nome\": \"Tipo de Filme Inserido\",\r\n    \"prazo\": 1,\r\n    \"preco\": 5.0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3333/tiposdefilme",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"tiposdefilme"
+							]
+						},
+						"description": "Inserindo um filme"
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"id\": 1,\r\n\t\"nome\": \"Tipo de Filme Alterado\",\r\n\t\"prazo\": 1,\r\n\t\"preco\": 5.0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3333/tiposdefilme/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"tiposdefilme",
+								"1"
+							]
+						},
+						"description": "Alterando um filme"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3333/tiposdefilme/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"tiposdefilme",
+								"3"
+							]
+						},
+						"description": "Deletando um filme"
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "ufs",
+			"item": [
+				{
+					"name": "List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3333/ufs",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"ufs"
+							]
+						},
+						"description": "Listar Ufs"
+					},
+					"response": []
+				},
+				{
+					"name": "Get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3333/ufs/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"ufs",
+								"1"
+							]
+						},
+						"description": "Buscar ES"
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\": null,\n    \"sigla\": \"MT\",\n    \"nome\": \"Mato Grosso\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3333/ufs/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"ufs",
+								""
+							]
+						},
+						"description": "Inserir Uf"
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 1,\n    \"sigla\": \"ES\",\n    \"nome\": \"Espírito Santo2\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3333/ufs/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"ufs",
+								"1"
+							]
+						},
+						"description": "Atualizar Uf"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://localhost:3333/ufs/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"ufs",
+								"1"
+							]
+						},
+						"description": "Deletar Ufs"
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "scv-port",
+			"value": "8080"
+		}
+	]
+}

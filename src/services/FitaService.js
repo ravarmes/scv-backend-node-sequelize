@@ -19,6 +19,12 @@ class FitaService {
     return objs;
   }
 
+  static async findByDanificadaAndDisponivel(req) {
+    const { danificada, disponivel } = req.params;
+    const objs = await Fita.findAll({ where: { danificada: danificada, disponivel: disponivel } });
+    return objs;
+  }
+
   static async findByIdAndDisponivel(id, disponivel) {
     const objs = await Fita.findAll({ where: { id: id, disponivel: disponivel } });
     return objs;

@@ -32,6 +32,18 @@ class DevolucaoController {
         .catch(next);
   }
 
+  static async findByClienteAndPeriodo(req, res, next) {
+    DevolucaoService.findByClienteAndPeriodo(req)
+        .then(obj => res.json(obj))
+        .catch(next);
+  }
+
+  static async findQuantidadeDevolucaoClienteByPeriodo(req, res, next) {
+    DevolucaoService.findQuantidadeDevolucaoClienteByPeriodo(req)
+        .then(obj => res.json(obj))
+        .catch(next);
+  }
+
 }
 
 export { DevolucaoController };

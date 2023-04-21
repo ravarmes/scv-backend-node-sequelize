@@ -32,6 +32,24 @@ class ReservaController {
         .catch(next);
   }
 
+  static async findByFitaAndStatus(req, res, next) {
+    ReservaService.findByFitaAndStatus(req)
+        .then(obj => res.json(obj))
+        .catch(next);
+  }
+
+  static async findByClienteAndPeriodo(req, res, next) {
+    ReservaService.findByClienteAndPeriodo(req)
+        .then(obj => res.json(obj))
+        .catch(next);
+  }
+
+  static async findQuantidadesReservasOfClientesByPeriodo(req, res, next) {
+    ReservaService.findQuantidadesReservasOfClientesByPeriodo(req)
+        .then(obj => res.json(obj))
+        .catch(next);
+  }
+
 }
 
 export { ReservaController };

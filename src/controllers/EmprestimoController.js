@@ -32,6 +32,42 @@ class EmprestimoController {
         .catch(next);
   }
 
+  static async findTotaisAndQuantidadesEmprestimosOfClientesByPeriodo(req, res, next) {
+    EmprestimoService.findTotaisAndQuantidadesEmprestimosOfClientesByPeriodo(req)
+        .then(objs => res.json(objs))
+        .catch(next);
+  }
+
+  static async findByCliente(req, res, next) {
+    EmprestimoService.findByCliente(req)
+        .then(objs => res.json(objs))
+        .catch(next);
+  }
+
+  static async findByClienteAndPeriodo(req, res, next) {
+    EmprestimoService.findByClienteAndPeriodo(req)
+        .then(objs => res.json(objs))
+        .catch(next);
+  }
+
+  static async findQuantidadesEmprestimosOfBairrosByPeriodo(req, res, next) {
+    EmprestimoService.findQuantidadesEmprestimosOfBairrosByPeriodo(req)
+        .then(objs => res.json(objs))
+        .catch(next);
+  }
+
+  static async findQuantidadesEmprestimosOfFilmesByPeriodo(req, res, next) {
+    EmprestimoService.findQuantidadesEmprestimosOfFilmesByPeriodo(req)
+        .then(objs => res.json(objs))
+        .catch(next);
+  }
+
+  static async findTotaisAnoMes(req, res, next) {
+    EmprestimoService.findTotaisAnoMes()
+        .then(objs => res.json(objs))
+        .catch(next);
+  }
+
 }
 
 export { EmprestimoController };

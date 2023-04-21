@@ -86,18 +86,28 @@ routes.post('/fitas', FitaController.create);
 routes.put('/fitas/:id', FitaController.update);
 routes.delete('/fitas/:id', FitaController.delete);
 routes.get('/fitas/findByFilme/:id', FitaController.findByFilme);
+routes.get('/fitas/findByDanificadaAndDisponivel/:danificada/:disponivel', FitaController.findByDanificadaAndDisponivel);
 
 routes.get('/emprestimos', EmprestimoController.findAll);
 routes.get('/emprestimos/:id', EmprestimoController.findByPk);
 routes.post('/emprestimos', EmprestimoController.create);
 routes.put('/emprestimos/:id', EmprestimoController.update);
 routes.delete('/emprestimos/:id', EmprestimoController.delete);
+routes.get('/emprestimos/findTotaisAndQuantidadesEmprestimosOfClientesByPeriodo/:inicio/:termino', EmprestimoController.findTotaisAndQuantidadesEmprestimosOfClientesByPeriodo);
+routes.get('/emprestimos/findByCliente/:clienteId', EmprestimoController.findByCliente);
+routes.get('/emprestimos/findByClienteAndPeriodo/:clienteId/:inicio/:termino', EmprestimoController.findByClienteAndPeriodo);
+routes.get('/emprestimos/findQuantidadesEmprestimosOfBairrosByPeriodo/:inicio/:termino', EmprestimoController.findQuantidadesEmprestimosOfBairrosByPeriodo);
+routes.get('/emprestimos/findQuantidadesEmprestimosOfFilmesByPeriodo/:inicio/:termino', EmprestimoController.findQuantidadesEmprestimosOfFilmesByPeriodo);
+routes.get('/emprestimos/findTotaisAnoMes', EmprestimoController.findTotaisAnoMes);
 
 routes.get('/reservas', ReservaController.findAll);
 routes.get('/reservas/:id', ReservaController.findByPk);
 routes.post('/reservas', ReservaController.create);
 routes.put('/reservas/:id', ReservaController.update);
 routes.delete('/reservas/:id', ReservaController.delete);
+routes.get('/reservas/findByFitaAndStatus/:fitaId/:status', ReservaController.findByFitaAndStatus);
+routes.get('/reservas/findByClienteAndPeriodo/:clienteId/:inicio/:termino', ReservaController.findByClienteAndPeriodo);
+routes.get('/reservas/findQuantidadesReservasOfClientesByPeriodo/:inicio/:termino', ReservaController.findQuantidadesReservasOfClientesByPeriodo);
 
 routes.get('/multas', MultaController.findAll);
 routes.get('/multas/:emprestimoId/:fitaId', MultaController.findByPk);
@@ -110,5 +120,7 @@ routes.get('/devolucoes/:emprestimoId/:fitaId', DevolucaoController.findByPk);
 routes.post('/devolucoes', DevolucaoController.create);
 routes.put('/devolucoes/:emprestimoId/:fitaId', DevolucaoController.update);
 routes.delete('/devolucoes/:emprestimoId/:fitaId', DevolucaoController.delete);
+routes.get('/devolucoes/findByClienteAndPeriodo/:clienteId/:inicio/:termino', DevolucaoController.findByClienteAndPeriodo);
+routes.get('/devolucoes/findQuantidadeDevolucaoClienteByPeriodo/:inicio/:termino', DevolucaoController.findQuantidadeDevolucaoClienteByPeriodo);
 
 export default routes;

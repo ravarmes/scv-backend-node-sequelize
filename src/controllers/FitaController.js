@@ -20,6 +20,12 @@ class FitaController {
         .catch(next);
   }
 
+  static async findByDanificadaAndDisponivel(req, res, next) {
+    FitaService.findByDanificadaAndDisponivel(req)
+        .then(obj => res.json(obj))
+        .catch(next);
+  }
+
   static async create(req, res, next) {
     FitaService.create(req)
         .then(obj => res.json(obj))

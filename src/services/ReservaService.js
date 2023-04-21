@@ -49,6 +49,24 @@ class ReservaService {
     return objs;
   }
 
+  static async findByFitaAndStatus(req) {
+    const { fitaId, status } = req.params;
+    const objs = await sequelize.query("SELECT * FROM reservas WHERE reservas.fita_id = :fitaId AND reservas.status = :status", { replacements: { fitaId: fitaId, status: status }, type: QueryTypes.SELECT });
+    return objs;
+  }
+
+  static async findByClienteAndPeriodo(req) {
+    const { clienteId, inicio, termino } = req.params;
+    const objs = await sequelize.query("SELECT * FROM reservas WHERE reservas.cliente_id = :clienteId AND reservas.data > :inicio AND reservas.data < :termino", { replacements: { clienteId: clienteId, inicio: inicio, termino: termino }, type: QueryTypes.SELECT });
+    return objs;
+  }
+
+  static async findQuantidadesReservasOfClientesByPeriodo(req) {
+    const { inicio, termino } = req.params;
+    const objs = await sequelize.query("SELECT clientes.nome AS nome, count(reservas.id) AS quantidade FROM reservas INNER JOIN clientes ON reservas.cliente_id = clientes.id WHERE reservas.data > :inicio AND reservas.data < :termino GROUP BY reservas.cliente_id", { replacements: { inicio: inicio, termino: termino }, type: QueryTypes.SELECT });
+    return objs;
+  }
+
 }
 
 export { ReservaService };

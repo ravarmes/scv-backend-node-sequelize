@@ -19,6 +19,11 @@ class FitaService {
     return objs;
   }
 
+  static async findByIdAndDisponivel(id, disponivel) {
+    const objs = await Fita.findAll({ where: { id: id, disponivel: disponivel } });
+    return objs;
+  }
+
   static async create(req) {
     const { danificada, disponivel, filme } = req.body;
     if (filme == null) throw 'O Filme da Fita deve ser preenchido!';

@@ -11,6 +11,10 @@ import { DiretorController } from './controllers/DiretorController.js';
 import { ArtistaController } from './controllers/ArtistaController.js';
 import { FilmeController } from './controllers/FilmeController.js';
 import { FitaController } from './controllers/FitaController.js';
+import { EmprestimoController } from './controllers/EmprestimoController.js';
+import { ReservaController } from './controllers/ReservaController.js';
+import { MultaController } from './controllers/MultaController.js';
+import { DevolucaoController } from './controllers/DevolucaoController.js';
 
 const routes = express.Router();
 
@@ -82,5 +86,29 @@ routes.post('/fitas', FitaController.create);
 routes.put('/fitas/:id', FitaController.update);
 routes.delete('/fitas/:id', FitaController.delete);
 routes.get('/fitas/findByFilme/:id', FitaController.findByFilme);
+
+routes.get('/emprestimos', EmprestimoController.findAll);
+routes.get('/emprestimos/:id', EmprestimoController.findByPk);
+routes.post('/emprestimos', EmprestimoController.create);
+routes.put('/emprestimos/:id', EmprestimoController.update);
+routes.delete('/emprestimos/:id', EmprestimoController.delete);
+
+routes.get('/reservas', ReservaController.findAll);
+routes.get('/reservas/:id', ReservaController.findByPk);
+routes.post('/reservas', ReservaController.create);
+routes.put('/reservas/:id', ReservaController.update);
+routes.delete('/reservas/:id', ReservaController.delete);
+
+routes.get('/multas', MultaController.findAll);
+routes.get('/multas/:emprestimoId/:fitaId', MultaController.findByPk);
+routes.post('/multas', MultaController.create);
+routes.put('/multas/:emprestimoId/:fitaId', MultaController.update);
+routes.delete('/multas/:emprestimoId/:fitaId', MultaController.delete);
+
+routes.get('/devolucoes', DevolucaoController.findAll);
+routes.get('/devolucoes/:emprestimoId/:fitaId', DevolucaoController.findByPk);
+routes.post('/devolucoes', DevolucaoController.create);
+routes.put('/devolucoes/:emprestimoId/:fitaId', DevolucaoController.update);
+routes.delete('/devolucoes/:emprestimoId/:fitaId', DevolucaoController.delete);
 
 export default routes;

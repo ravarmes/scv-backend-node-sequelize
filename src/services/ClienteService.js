@@ -63,6 +63,11 @@ class ClienteService {
     }
   }
 
+  static async findDevedores() {
+    const objs = await sequelize.query("SELECT clientes.*  FROM emprestimos INNER JOIN clientes ON emprestimos.cliente_id = clientes.id INNER JOIN multas ON emprestimos.id = multas.emprestimo_id WHERE multas.pago = false", { type: QueryTypes.SELECT });  
+    return objs;
+  }
+
 }
 
 export { ClienteService };

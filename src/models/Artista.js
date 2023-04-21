@@ -12,7 +12,13 @@ class Artista extends Model {
         }
       },
       imagem: {
-        type: DataTypes.BLOB('long')
+        type: DataTypes.BLOB('long'), // Armazenando String na Base64 (Postgresql)
+        get() {
+          return Buffer.from(this.getDataValue('imagem')).toString(); // Retornando no formato String
+        },
+        validate: {
+          notEmpty: { msg: "Imagem do Artista deve ser preenchida!" }
+        }
       }
     }, { sequelize, modelName: 'artista', tableName: 'artistas' })
   }

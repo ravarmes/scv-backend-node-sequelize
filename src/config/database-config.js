@@ -32,10 +32,10 @@ export const databaseConfig = {
 // Configuração do banco de dados no ambiente de produção
 export const databaseConfig = {
   dialect: 'postgres',
-  host: 'dpg-cthbfv52ng1s739n7r0g-a.oregon-postgres.render.com',
+  host: 'dpg-cufltkjtq21c73f7ado0-a.oregon-postgres.render.com',
   username: 'scv_backend_node_sequelize_user',
-  password: 'kxe4RLpJ00IO1lbcwqUoxQmvbz46xP1R',
-  database: 'scv_backend_node_sequelize_bat0',
+  password: 'LYYIg8R0W4A4fUpQl7r6oTa8Ko7JiLBL',
+  database: 'scv_backend_node_sequelize_ulw1',
   define: {
     timestamps: true,
     freezeTableName: true,

@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapeamentos Objeto-Relacional com Sequelize</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #2980b9;
+            margin-top: 40px;
+            border-left: 4px solid #3498db;
+            padding-left: 10px;
+        }
+        .mapping-container {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 30px;
+            padding: 20px;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .diagram {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .diagram img {
+            max-width: 100%;
+            height: auto;
+        }
+        .code-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .code-box {
+            flex: 1;
+            min-width: 300px;
+        }
+        pre {
+            background-color: #f1f1f1;
+            border-left: 3px solid #3498db;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: Consolas, Monaco, 'Andale Mono', monospace;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+        .highlight {
+            background-color: #ffffcc;
+            font-weight: bold;
+            padding: 2px;
+        }
+        .intro {
+            background-color: #e8f4fd;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Mapeamentos Objeto-Relacional com Sequelize</h1>
+    
+    <div class="intro">
+        <p>Este material apresenta os diferentes tipos de mapeamentos objeto-relacional implementados no Sequelize, com base no diagrama de classes de um sistema de locadora de filmes. Para cada tipo de associação, é mostrado um diagrama destacando as classes envolvidas e o código correspondente em JavaScript utilizando Sequelize.</p>
+    </div>
+
+    <!-- Cidade x UF -->
+    <h2>1. Cidade * x 1 UF (Um para Muitos)</h2>
+    <div class="mapping-container">
+        <div class="diagram">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 300" width="500">
+              <!-- Classes -->
+              <rect x="50" y="50" width="180" height="120" fill="#d4f4d4" stroke="#000" stroke-width="2"/>
+              <rect x="50" y="50" width="180" height="30" fill="#d4f4d4" stroke="#000" stroke-width="2"/>
+              <text x="140" y="70" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold">Cidade</text>
+              <line x1="50" y1="80" x2="230" y2="80" stroke="#000" stroke-width="2"/>
+              <text x="60" y="100" font-family="Arial" font-size="12">- &lt;&lt;oid&gt;&gt; id : Integer</text>
+              <text x="60" y="120" font-family="Arial" font-size="12">- nome : String</text>
+              
+              <rect x="320" y="50" width="180" height="120" fill="#d4f4d4" stroke="#000" stroke-width="2"/>
+              <rect x="320" y="50" width="180" height="30" fill="#d4f4d4" stroke="#000" stroke-width="2"/>
+              <text x="410" y="70" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold">UF</text>
+              <line x1="320" y1="80" x2="500" y2="80" stroke="#000" stroke-width="2"/>
+              <text x="330" y="100" font-family="Arial" font-size="12">- &lt;&lt;oid&gt;&gt; id : Integer</text>
+              <text x="330" y="120" font-family="Arial" font-size="12">- sigla : String</text>
+              <text x="330" y="140" font-family="Arial" font-size="12">- nome : String</text>
+              
+              <!-- Relação destacada -->
+              <line x1="230" y1="110" x2="320" y2="110" stroke="#ff0000" stroke-width="3"/>
+              <!--<polygon points="115,105 110,110 115,115" fill="#ff0000" stroke="#ff0000"/>-->
+              <text x="240" y="100" font-family="Arial" font-size="12" fill="#ff0000">*</text>
+              <text x="305" y="100" font-family="Arial" font-size="12" fill="#ff0000">1</text>
+            </svg>
+        </div>
+        <div class="code-container">
+            <div class="code-box">
+                <h3>Cidade.js</h3>
+                <pre>
+import { Model, DataTypes } from 'sequelize';
+
+class Cidade extends Model {
+  static init(sequelize) {
+    super.init({
+      nome: { 
+        type: DataTypes.STRING
+      }
+    }, { sequelize, modelName: 'cidade', tableName: 'cidades' })
+  }
+
+  static associate(models) {
+    <span class="highlight">this.belongsTo(models.uf);</span>
+  }
+}
+
+export { Cidade };
+                </pre>
+            </div>
+            <div class="code-box">
+                <h3>UF.js</h3>
+                <pre>
+import { Model, DataTypes } from 'sequelize';
+
+class UF extends Model {
+  static init(sequelize) {
+    super.init({
+      sigla: { 
+        type: DataTypes.STRING
+      },
+      nome: { 
+        type: DataTypes.STRING
+      }
+    }, { sequelize, modelName: 'uf', tableName: 'ufs' })
+  }
+
+  static associate(models) {
+  }
+}
+
+export { UF };
+                </pre>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cliente x Telefone -->
+    <h2>2. Cliente 1 x 1..* Telefone (Um para Muitos)</h2>
+    <div class="mapping-container">
+        <div class="diagram">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 300" width="500">
+              <!-- Classes -->
+              <rect x="50" y="50" width="180" height="120" fill="#d4f4d4" stroke="#000" stroke-width="2"/>
+              <rect x="50" y="50" width="180" height="30" fill="#d4f4d4" stroke="#000" stroke-width="2"/>
+              <text x="140" y="70" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold">Cliente</text>
+              <line x1="50" y1="80" x2="230" y2="80" stroke="#000" stroke-width="2"/>
+              <text x="60" y="100" font-family="Arial" font-size="12">- debito : Double</text>
+              <text x="60" y="120" font-family="Arial" font-size="12">- nascimento : Date</text>
+              
+              <rect x="320" y="50" width="180" height="120" fill="#d4f4d4" stroke="#000" stroke-width="2"/>
+              <rect x="320" y="50" width="180" height="30" fill="#d4f4d4" stroke="#000" stroke-width="2"/>
+              <text x="410" y="70" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold">&lt;&lt;weak&gt;&gt;</text>
+              <text x="410" y="95" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold">Telefone</text>
+              <line x1="320" y1="100" x2="500" y2="100" stroke="#000" stroke-width="2"/>
+              <text x="330" y="120" font-family="Arial" font-size="12">- numero : String</text>
+              
+              <!-- Relação destacada -->
+              <line x1="230" y1="110" x2="320" y2="110" stroke="#ff0000" stroke-width="3"/>
+              <!--<polygon points="315,105 320,110 315,115" fill="#ff0000" stroke="#ff0000"/>-->
+              <text x="240" y="100" font-family="Arial" font-size="12" fill="#ff0000">1</text>
+              <text x="295" y="100" font-family="Arial" font-size="12" fill="#ff0000">1..*</text>
+            </svg>
+        </div>
+        <div class="code-container">
+            <div class="code-box">
+                <h3>Cliente.js</h3>
+                <pre>
+import { Model, DataTypes } from 'sequelize';
+
+class Cliente extends Model {
+  static init(sequelize) {
+    super.init({
+      debito: { 
+        type: DataTypes.DOUBLE
+      },
+      nascimento: { 
+        type: DataTypes.DATE
+      }
+    }, { sequelize, modelName: 'cliente', tableName: 'clientes' })
+  }
+
+  static associate(models) {
+    <span class="highlight">this.hasMany(models.telefone);</span>
+  }
+}
+
+export { Cliente };
+                </pre>
+            </div>
+            <div class="code-box">
+                <h3>Telefone.js</h3>
+                <pre>
+import { Model, DataTypes } from 'sequelize';
+
+class Telefone extends Model {
+  static init(sequelize) {
+    super.init({
+      numero: { 
+        type: DataTypes.STRING
+      }
+    }, { sequelize, modelName: 'telefone', tableName: 'telefones' })
+  }
+
+  static associate(models) {
+    <span class="highlight">this.belongsTo(models.cliente);</span>
+  }
+}
+
+export { Telefone };
+                </pre>
+            </div>
+        </div>
+    </div>
+
+    <!-- Devolucao x ItemDeEmprestimo -->
+    <h2>3. Devolucao 0..1 x 1 ItemDeEmprestimo (Um para Um opcional)</h2>
+    <div class="mapping-container">
+        <div class="diagram">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 550 300" width="500">
+              <!-- Classes -->
+              <rect x="50" y="50" width="180" height="100" fill="#f5f5c4" stroke="#000" stroke-width="2"/>
+              <rect x="50" y="50" width="180" height="30" fill="#f5f5c4" stroke="#000" stroke-width="2"/>
+              <text x="140" y="70" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold">Devolucao</text>
+              <line x1="50" y1="80" x2="230" y2="80" stroke="#000" stroke-width="2"/>
+              <text x="60" y="100" font-family="Arial" font-size="12">- data : Date</text>
+              
+              <rect x="320" y="50" width="220" height="120" fill="#f5f5c4" stroke="#000" stroke-width="2"/>
+              <rect x="320" y="50" width="220" height="30" fill="#f5f5c4" stroke="#000" stroke-width="2"/>
+              <text x="430" y="70" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold">ItemDeEmprestimo</text>
+              <line x1="320" y1="80" x2="540" y2="80" stroke="#000" stroke-width="2"/>
+              <text x="330" y="100" font-family="Arial" font-size="12">- valor : Double</text>
+              <text x="330" y="120" font-family="Arial" font-size="12">- entrega : Date</text>
+              
+              <!-- Relação destacada -->
+              <line x1="230" y1="80" x2="320" y2="80" stroke="#ff0000" stroke-width="3"/>
+              <!--<polygon points="315,75 320,80 315,85" fill="#ff0000" stroke="#ff0000"/>-->
+              <text x="240" y="70" font-family="Arial" font-size="12" fill="#ff0000">0..1</text>
+              <text x="305" y="70" font-family="Arial" font-size="12" fill="#ff0000">1</text>
+            </svg>
+        </div>
+        <div class="code-container">
+            <div class="code-box">
+                <h3>Devolucao.js</h3>
+                <pre>
+import { Model, DataTypes } from 'sequelize';
+
+class Devolucao extends Model {
+  static init(sequelize) {
+    super.init({
+      data: { 
+        type: DataTypes.DATE
+      }
+    }, { sequelize, modelName: 'devolucao', tableName: 'devolucoes' })
+  }
+
+  static associate(models) {
+    <span class="highlight">this.removeAttribute('id');
+    this.belongsTo(models.emprestimo);
+    this.belongsTo(models.fita);</span>
+  }
+}
+
+export { Devolucao };
+                </pre>
+            </div>
+            <div class="code-box">
+                <h3>ItemDeEmprestimo.js</h3>
+                <pre>
+import { Model, DataTypes } from 'sequelize';
+
+class ItemDeEmprestimo extends Model {
+  static init(sequelize) {
+    super.init({
+      valor: { 
+        type: DataTypes.DOUBLE
+      },
+      entrega: { 
+        type: DataTypes.DATE
+      }
+    }, { sequelize, modelName: 'itemDeEmprestimo', tableName: 'itensDeEmprestimo' })
+  }
+
+  static associate(models) {
+  }
+}
+
+export { ItemDeEmprestimo };
+                </pre>
+            </div>
+        </div>
+    </div>
+
+    <!-- Emprestimo x ItemDeEmprestimo x Fita -->
+    <h2>4. Emprestimo x ItemDeEmprestimo x Fita (Muitos para muitos com classe associativa)</h2>
+    <div class="mapping-container">
+        <div class="diagram">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 750 400" width="600">
+              <!-- Classes -->
+              <rect x="50" y="150" width="180" height="120" fill="#f5f5c4" stroke="#000" stroke-width="2"/>
+              <rect x="50" y="150" width="180" height="30" fill="#f5f5c4" stroke="#000" stroke-width="2"/>
+              <text x="140" y="170" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold">Emprestimo</text>
+              <line x1="50" y1="180" x2="230" y2="180" stroke="#000" stroke-width="2"/>
+              <text x="60" y="200" font-family="Arial" font-size="12">- &lt;&lt;oid&gt;&gt; id : Integer</text>
+              <text x="60" y="220" font-family="Arial" font-size="12">- data : Date</text>
+              <text x="60" y="240" font-family="Arial" font-size="12">- valor : Double</text>
+              
+              <rect x="320" y="150" width="220" height="120" fill="#f5f5c4" stroke="#000" stroke-width="2"/>
+              <rect x="320" y="150" width="220" height="30" fill="#f5f5c4" stroke="#000" stroke-width="2"/>
+              <text x="430" y="170" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold">ItemDeEmprestimo</text>
+              <line x1="320" y1="180" x2="540" y2="180" stroke="#000" stroke-width="2"/>
+              <text x="330" y="200" font-family="Arial" font-size="12">- valor : Double</text>
+              <text x="330" y="220" font-family="Arial" font-size="12">- entrega : Date</text>
+              
+              <rect x="600" y="150" width="180" height="120" fill="#d4f4d4" stroke="#000" stroke-width="2"/>
+              <rect x="600" y="150" width="180" height="30" fill="#d4f4d4" stroke="#000" stroke-width="2"/>
+              <text x="690" y="170" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold">Fita</text>
+              <line x1="600" y1="180" x2="780" y2="180" stroke="#000" stroke-width="2"/>
+              <text x="610" y="200" font-family="Arial" font-size="12">- &lt;&lt;oid&gt;&gt; id : Integer</text>
+              <text x="610" y="220" font-family="Arial" font-size="12">- danificada : Boolean</text>
+              <text x="610" y="240" font-family="Arial" font-size="12">- disponivel : Boolean</text>
+              
+              <!-- Relações destacadas -->
+              <line x1="230" y1="200" x2="320" y2="200" stroke="#ff0000" stroke-width="3"/>
+              <!--<polygon points="315,195 320,200 315,205" fill="#ff0000" stroke="#ff0000"/>-->
+              <text x="240" y="190" font-family="Arial" font-size="12" fill="#ff0000">1</text>
+              <text x="305" y="190" font-family="Arial" font-size="12" fill="#ff0000">*</text>
+              
+              <line x1="540" y1="200" x2="600" y2="200" stroke="#ff0000" stroke-width="3"/>
+              <!--<polygon points="595,195 600,200 595,205" fill="#ff0000" stroke="#ff0000"/>-->
+              <text x="550" y="190" font-family="Arial" font-size="12" fill="#ff0000">1..*</text>
+              <text x="585" y="190" font-family="Arial" font-size="12" fill="#ff0000">1</text>
+            </svg>
+        </div>
+        <div class="code-container">
+            <div class="code-box">
+                <h3>Emprestimo.js</h3>
+                <pre>
+import { Model, DataTypes } from 'sequelize';
+
+class Emprestimo extends Model {
+  static init(sequelize) {
+    super.init({
+      data: { 
+        type: DataTypes.DATE
+      },
+      valor: { 
+        type: DataTypes.DOUBLE
+      }
+    }, { sequelize, modelName: 'emprestimo', tableName: 'emprestimos' })
+  }
+
+  static associate(models) {
+    <span class="highlight">this.hasMany(models.itemDeEmprestimo);</span>
+  }
+}
+
+export { Emprestimo };
+                </pre>
+            </div>
+            <div class="code-box">
+                <h3>ItemDeEmprestimo.js</h3>
+                <pre>
+import { Model, DataTypes } from 'sequelize';
+
+class ItemDeEmprestimo extends Model {
+  static init(sequelize) {
+    super.init({
+      valor: { 
+        type: DataTypes.DOUBLE
+      },
+      entrega: { 
+        type: DataTypes.DATE
+      }
+    }, { sequelize, modelName: 'itemDeEmprestimo', tableName: 'itensDeEmprestimo' })
+  }
+
+  static associate(models) {
+    <span class="highlight">this.removeAttribute('id');
+    this.belongsTo(models.emprestimo);
+    this.belongsTo(models.fita);</span>
+  }
+}
+
+export { ItemDeEmprestimo };
+                </pre>
+            </div>
+            <div class="code-box">
+                <h3>Fita.js</h3>
+                <pre>
+import { Model, DataTypes } from 'sequelize';
+
+class Fita extends Model {
+  static init(sequelize) {
+    super.init({
+      danificada: { 
+        type: DataTypes.BOOLEAN
+      },
+      disponivel: { 
+        type: DataTypes.BOOLEAN
+      }
+    }, { sequelize, modelName: 'fita', tableName: 'fitas' })
+  }
+
+  static associate(models) {
+  }
+}
+
+export { Fita };
+                </pre>
+            </div>
+        </div>
+    </div>
+
+    <!-- Filme x Diretor -->
+    <h2>5. Filme * x 1..* Diretor (Muitos para Muitos)</h2>
+    <div class="mapping-container">
+        <div class="diagram">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 550 300" width="500">
+              <!-- Classes -->
+              <rect x="50" y="50" width="180" height="150" fill="#d4f4d4" stroke="#000" stroke-width="2"/>
+              <rect x="50" y="50" width="180" height="30" fill="#d4f4d4" stroke="#000" stroke-width="2"/>
+              <text x="140" y="70" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold">Filme</text>
+              <line x1="50" y1="80" x2="230" y2="80" stroke="#000" stroke-width="2"/>
+              <text x="60" y="100" font-family="Arial" font-size="12">- &lt;&lt;oid&gt;&gt; id : Integer</text>
+              <text x="60" y="120" font-family="Arial" font-size="12">- titulo : String</text>
+              <text x="60" y="140" font-family="Arial" font-size="12">- genero : String</text>
+              <text x="60" y="160" font-family="Arial" font-size="12">- duracao : String</text>
+              <text x="60" y="180" font-family="Arial" font-size="12">- imagem : byte[]</text>
+              
+              <rect x="320" y="50" width="180" height="100" fill="#d4f4d4" stroke="#000" stroke-width="2"/>
+              <rect x="320" y="50" width="180" height="30" fill="#d4f4d4" stroke="#000" stroke-width="2"/>
+              <text x="410" y="70" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold">Diretor</text>
+              <line x1="320" y1="80" x2="500" y2="80" stroke="#000" stroke-width="2"/>
+              <text x="330" y="100" font-family="Arial" font-size="12">- &lt;&lt;oid&gt;&gt; id : Integer</text>
+              <text x="330" y="120" font-family="Arial" font-size="12">- nome : String</text>
+              
+              <!-- Relação destacada com setas bidirecionais -->
+              <line x1="230" y1="100" x2="320" y2="100" stroke="#ff0000" stroke-width="3"/>
+              <!--<polygon points="245,95 230,100 245,105" fill="#ff0000" stroke="#ff0000"/>
+              <polygon points="305,95 320,100 305,105" fill="#ff0000" stroke="#ff0000"/>-->
+              <text x="240" y="90" font-family="Arial" font-size="12" fill="#ff0000">*</text>
+              <text x="295" y="90" font-family="Arial" font-size="12" fill="#ff0000">1..*</text>
+            </svg>
+        </div>
+        <div class="code-container">
+            <div class="code-box">
+                <h3>Filme.js</h3>
+                <pre>
+import { Model, DataTypes } from 'sequelize';
+
+class Filme extends Model {
+  static init(sequelize) {
+    super.init({
+      titulo: { 
+        type: DataTypes.STRING
+      },
+      genero: { 
+        type: DataTypes.STRING
+      },
+      duracao: { 
+        type: DataTypes.STRING
+      },
+      imagem: { 
+        type: DataTypes.BLOB
+      }
+    }, { sequelize, modelName: 'filme', tableName: 'filmes' })
+  }
+
+  static associate(models) {
+    <span class="highlight">this.belongsToMany(models.diretor);</span>
+  }
+}
+
+export { Filme };
+                </pre>
+            </div>
+            <div class="code-box">
+                <h3>Diretor.js</h3>
+                <pre>
+import { Model, DataTypes } from 'sequelize';
+
+class Diretor extends Model {
+  static init(sequelize) {
+    super.init({
+      nome: { 
+        type: DataTypes.STRING
+      }
+    }, { sequelize, modelName: 'diretor', tableName: 'diretores' })
+  }
+
+  static associate(models) {
+  }
+}
+
+export { Diretor };
+                </pre>
+            </div>
+        </div>
+    </div>
+
+    <!-- Filme x Participacao x Artista -->
+    <h2>6. Filme x Participacao x Artista (Muitos para muitos com classe comum)</h2>
+    <div class="mapping-container">
+        <div class="diagram">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 750 400" width="600">
+              <!-- Classes -->
+              <rect x="50" y="150" width="180" height="150" fill="#d4f4d4" stroke="#000" stroke-width="2"/>
+              <rect x="50" y="150" width="180" height="30" fill="#d4f4d4" stroke="#000" stroke-width="2"/>
+              <text x="140" y="170" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold">Filme</text>
+              <line x1="50" y1="180" x2="230" y2="180" stroke="#000" stroke-width="2"/>
+              <text x="60" y="200" font-family="Arial" font-size="12">- &lt;&lt;oid&gt;&gt; id : Integer</text>
+              <text x="60" y="220" font-family="Arial" font-size="12">- titulo : String</text>
+              <text x="60" y="240" font-family="Arial" font-size="12">- genero : String</text>
+              <text x="60" y="260" font-family="Arial" font-size="12">- duracao : String</text>
+              <text x="60" y="280" font-family="Arial" font-size="12">- imagem : byte[]</text>
+              
+              <rect x="320" y="150" width="220" height="120" fill="#d4f4d4" stroke="#000" stroke-width="2"/>
+              <rect x="320" y="150" width="220" height="30" fill="#d4f4d4" stroke="#000" stroke-width="2"/>
+              <text x="430" y="170" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold">Participacao</text>
+              <line x1="320" y1="180" x2="540" y2="180" stroke="#000" stroke-width="2"/>
+              <text x="330" y="200" font-family="Arial" font-size="12">- &lt;&lt;oid&gt;&gt; id : Integer</text>
+              <text x="330" y="220" font-family="Arial" font-size="12">- personagem : String</text>
+              
+              <rect x="600" y="150" width="180" height="120" fill="#d4f4d4" stroke="#000" stroke-width="2"/>
+              <rect x="600" y="150" width="180" height="30" fill="#d4f4d4" stroke="#000" stroke-width="2"/>
+              <text x="690" y="170" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold">Artista</text>
+              <line x1="600" y1="180" x2="780" y2="180" stroke="#000" stroke-width="2"/>
+              <text x="610" y="200" font-family="Arial" font-size="12">- &lt;&lt;oid&gt;&gt; id : Integer</text>
+              <text x="610" y="220" font-family="Arial" font-size="12">- nome : String</text>
+              <text x="610" y="240" font-family="Arial" font-size="12">- imagem : byte[]</text>
+              
+              <!-- Relações destacadas -->
+              <line x1="230" y1="200" x2="320" y2="200" stroke="#ff0000" stroke-width="3"/>
+              <!--<polygon points="315,195 320,200 315,205" fill="#ff0000" stroke="#ff0000"/>-->
+              <text x="240" y="190" font-family="Arial" font-size="12" fill="#ff0000">1</text>
+              <text x="295" y="190" font-family="Arial" font-size="12" fill="#ff0000">1..*</text>
+              
+              <line x1="540" y1="200" x2="600" y2="200" stroke="#ff0000" stroke-width="3"/>
+              <!--<polygon points="595,195 600,200 595,205" fill="#ff0000" stroke="#ff0000"/>-->
+              <text x="550" y="190" font-family="Arial" font-size="12" fill="#ff0000">*</text>
+              <text x="585" y="190" font-family="Arial" font-size="12" fill="#ff0000">1</text>
+            </svg>
+        </div>
+        <div class="code-container">
+            <div class="code-box">
+                <h3>Filme.js</h3>
+                <pre>
+import { Model, DataTypes } from 'sequelize';
+
+class Filme extends Model {
+  static init(sequelize) {
+    super.init({
+      titulo: { 
+        type: DataTypes.STRING
+      },
+      genero: { 
+        type: DataTypes.STRING
+      },
+      duracao: { 
+        type: DataTypes.STRING
+      },
+      imagem: { 
+        type: DataTypes.BLOB
+      }
+    }, { sequelize, modelName: 'filme', tableName: 'filmes' })
+  }
+
+  static associate(models) {
+    <span class="highlight">this.hasMany(models.participacao);</span>
+  }
+}
+
+export { Filme };
+                </pre>
+            </div>
+            <div class="code-box">
+                <h3>Participacao.js</h3>
+                <pre>
+import { Model, DataTypes } from 'sequelize';
+
+class Participacao extends Model {
+  static init(sequelize) {
+    super.init({
+      personagem: { 
+        type: DataTypes.STRING
+      }
+    }, { sequelize, modelName: 'participacao', tableName: 'participacoes' })
+  }
+
+  static associate(models) {
+    <span class="highlight">this.belongsTo(models.filme);</span>
+    <span class="highlight">this.belongsTo(models.artista);</span>
+  }
+}
+
+export { Participacao };
+                </pre>
+            </div>
+            <div class="code-box">
+                <h3>Artista.js</h3>
+                <pre>
+import { Model, DataTypes } from 'sequelize';
+
+class Artista extends Model {
+  static init(sequelize) {
+    super.init({
+      nome: { 
+        type: DataTypes.STRING
+      },
+      imagem: { 
+        type: DataTypes.BLOB
+      }
+    }, { sequelize, modelName: 'artista', tableName: 'artistas' })
+  }
+
+  static associate(models) {
+    // Método associate vazio conforme solicitado
+  }
+}
+
+export { Artista };
+                </pre>
+            </div>
+        </div>
+    </div>

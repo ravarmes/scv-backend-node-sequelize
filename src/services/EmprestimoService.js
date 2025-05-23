@@ -7,6 +7,9 @@ import { ReservaService } from "../services/ReservaService.js";
 import sequelize from '../config/database-connection.js';
 import { QueryTypes } from 'sequelize';
 
+import { databaseConfig } from '../config/database-config.js';
+
+
 class EmprestimoService {
 
   static async findAll() {
@@ -99,8 +102,13 @@ class EmprestimoService {
   }
 
   static async findTotaisAnoMes() {
-    const objs = await sequelize.query("select count(emprestimos.id), extract(year from data) as ano, extract(month from data) as mes from emprestimos group by ano, mes order by ano, mes", { type: QueryTypes.SELECT }); // postgresql
-    //const objs = await sequelize.query("select count(emprestimos.id), strftime('%Y' , data) as ano, strftime('%m' , data) as mes from emprestimos group by ano, mes order by ano, mes", { type: QueryTypes.SELECT }); // sqlite
+    const isPostgres = databaseConfig.dialect === 'postgres';
+
+    const sql = isPostgres
+      ? "SELECT COUNT(emprestimos.id), EXTRACT(YEAR FROM data) AS ano, EXTRACT(MONTH FROM data) AS mes FROM emprestimos GROUP BY ano, mes ORDER BY ano, mes"
+      : "SELECT COUNT(emprestimos.id), strftime('%Y', data) AS ano, strftime('%m', data) AS mes FROM emprestimos GROUP BY ano, mes ORDER BY ano, mes";
+
+    const objs = await sequelize.query(sql, { type: QueryTypes.SELECT });
     return objs;
   }
 

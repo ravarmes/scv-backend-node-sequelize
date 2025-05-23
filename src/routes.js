@@ -88,6 +88,7 @@ routes.delete('/fitas/:id', FitaController.delete);
 routes.get('/fitas/findByFilme/:id', FitaController.findByFilme);
 routes.get('/fitas/findByDanificadaAndDisponivel/:danificada/:disponivel', FitaController.findByDanificadaAndDisponivel);
 
+routes.get('/emprestimos/findTotaisAnoMes', EmprestimoController.findTotaisAnoMes);
 routes.get('/emprestimos', EmprestimoController.findAll);
 routes.get('/emprestimos/:id', EmprestimoController.findByPk);
 routes.post('/emprestimos', EmprestimoController.create);
@@ -98,7 +99,6 @@ routes.get('/emprestimos/findByCliente/:clienteId', EmprestimoController.findByC
 routes.get('/emprestimos/findByClienteAndPeriodo/:clienteId/:inicio/:termino', EmprestimoController.findByClienteAndPeriodo);
 routes.get('/emprestimos/findQuantidadesEmprestimosOfBairrosByPeriodo/:inicio/:termino', EmprestimoController.findQuantidadesEmprestimosOfBairrosByPeriodo);
 routes.get('/emprestimos/findQuantidadesEmprestimosOfFilmesByPeriodo/:inicio/:termino', EmprestimoController.findQuantidadesEmprestimosOfFilmesByPeriodo);
-routes.get('/emprestimos/findTotaisAnoMes', EmprestimoController.findTotaisAnoMes);
 
 routes.get('/reservas', ReservaController.findAll);
 routes.get('/reservas/:id', ReservaController.findByPk);

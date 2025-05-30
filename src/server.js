@@ -18,7 +18,7 @@ app.use(function (req, res, next) {
 
 // Limite máximo de request aumentado
 app.use(express.json({limit: '10mb'}));
-app.use(express.urlencoded({limit: '10mb'}));
+app.use(express.urlencoded({ limit: '10mb', extended: true }));
 
 app.use(routes);
 app.use(errorHandler); // Manipulador de erro global (error handler)

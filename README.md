@@ -78,6 +78,9 @@
 ### Documentação das requisições do SCV Backend no Postman
 [Postman] (https://documenter.getpostman.com/view/4048967/Szf9XTg4)
 
+### Implantação do SCV Frontend React
+[GitHub Pages] (https://ravarmes.github.io/scv-frontend-react/)
+
 ### Implantação do SCV Frontend React Redux
 [GitHub Pages] (https://ravarmes.github.io/scv-frontend-react-redux/)
 

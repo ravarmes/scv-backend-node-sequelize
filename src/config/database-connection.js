@@ -67,7 +67,7 @@ function databaseInserts() {
     (async () => {
 
         await sequelize.sync();
-/*
+
 
         const uf1 = await Uf.create({ sigla: "ES", nome: "Espírito Santo" });
         const uf2 = await Uf.create({ sigla: "MG", nome: "Minas Gerais" });
@@ -169,7 +169,7 @@ function databaseInserts() {
         const multa1 = await Multa.create({ emprestimoId: emprestimo1.id, fitaId: fita1.id, valor: 5.00, pago: false });
 
         const reserva1 = await Reserva.create({ clienteId: cliente1.id, fitaId: fita1.id, data: '2023-04-13', status: 1 });
-*/
+
     })();
 }
 

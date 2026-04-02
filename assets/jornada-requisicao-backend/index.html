@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fluxo Backend</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #1a1a2e;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .page {
+      width: min(98vw, 2700px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .title {
+      color: #f6f3ee;
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(1.4rem, 2.5vw, 2.5rem);
+      font-weight: 800;
+      letter-spacing: 0.3px;
+      text-align: center;
+      text-shadow: 0 6px 16px rgba(0, 0, 0, 0.45);
+    }
+
+    .image-wrapper {
+      position: relative;
+      display: inline-block;
+      max-width: 100%;
+    }
+
+    .image-wrapper img#main {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+    }
+
+    /* Invisible clickable overlays that scale with the image */
+    .hotspot {
+      position: absolute;
+      top: 0;
+      height: 100%;
+      cursor: zoom-in;
+      border-radius: 8px;
+      transition: background 0.2s;
+    }
+
+    .hotspot:hover {
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    /* 6 equal columns: each ~16.667% wide */
+    .hotspot-1 { left: 0%;       width: 16.667%; }
+    .hotspot-2 { left: 16.667%;  width: 16.667%; }
+    .hotspot-3 { left: 33.333%;  width: 16.667%; }
+    .hotspot-4 { left: 50%;      width: 16.667%; }
+    .hotspot-5 { left: 66.667%;  width: 16.667%; }
+    .hotspot-6 { left: 83.333%;  width: 16.667%; }
+
+    /* Lightbox */
+    #lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.82);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+      cursor: zoom-out;
+      backdrop-filter: blur(4px);
+    }
+
+    #lightbox.active {
+      display: flex;
+    }
+
+    #lightbox img {
+      max-width: 90vw;
+      max-height: 90vh;
+      border-radius: 10px;
+      box-shadow: 0 16px 64px rgba(0,0,0,0.7);
+      object-fit: contain;
+      animation: zoomIn 0.22s ease;
+    }
+
+    #lightbox-close {
+      position: fixed;
+      top: 18px;
+      right: 24px;
+      font-size: 2.2rem;
+      color: #fff;
+      cursor: pointer;
+      line-height: 1;
+      user-select: none;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+      transition: transform 0.15s;
+      z-index: 1001;
+    }
+
+    #lightbox-close:hover {
+      transform: scale(1.2);
+    }
+
+    #lightbox-label {
+      position: fixed;
+      bottom: 22px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #fff;
+      font-family: sans-serif;
+      font-size: 1rem;
+      opacity: 0.7;
+      pointer-events: none;
+    }
+
+    @keyframes zoomIn {
+      from { transform: scale(0.82); opacity: 0; }
+      to   { transform: scale(1);    opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="page">
+    <h1 class="title">Jornada da Requisição: Entendendo o Fluxo Backend</h1>
+
+    <div class="image-wrapper">
+      <img id="main" src="_backend.png" alt="Fluxo Backend" usemap="#fluxo-map" />
+
+      <!-- Overlay hotspots (positioned absolutely, scale responsively) -->
+      <div class="hotspot hotspot-1" data-step="1" title="Passo 1 – Frontend"></div>
+      <div class="hotspot hotspot-2" data-step="2" title="Passo 2 – Roteador"></div>
+      <div class="hotspot hotspot-3" data-step="3" title="Passo 3 – Controller"></div>
+      <div class="hotspot hotspot-4" data-step="4" title="Passo 4 – Service"></div>
+      <div class="hotspot hotspot-5" data-step="5" title="Passo 5 – Model"></div>
+      <div class="hotspot hotspot-6" data-step="6" title="Passo 6 – Resposta JSON"></div>
+    </div>
+  </div>
+
+  <!-- Lightbox -->
+  <div id="lightbox">
+    <span id="lightbox-close" title="Fechar">&#x2715;</span>
+    <img id="lightbox-img" src="" alt="Detalhe do passo" />
+    <div id="lightbox-label">Clique ou pressione ESC para fechar</div>
+  </div>
+
+  <script>
+    const lightbox     = document.getElementById('lightbox');
+    const lightboxImg  = document.getElementById('lightbox-img');
+    const closeBtn     = document.getElementById('lightbox-close');
+
+    function openLightbox(step) {
+      lightboxImg.src = step + '.png';
+      lightboxImg.alt = 'Passo ' + step;
+      lightbox.classList.add('active');
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove('active');
+      lightboxImg.src = '';
+    }
+
+    // Attach click to each hotspot
+    document.querySelectorAll('.hotspot').forEach(function (el) {
+      el.addEventListener('click', function () {
+        openLightbox(this.dataset.step);
+      });
+    });
+
+    // Close on lightbox background click
+    lightbox.addEventListener('click', function (e) {
+      if (e.target === lightbox || e.target === lightboxImg) {
+        closeLightbox();
+      }
+    });
+
+    // Close button
+    closeBtn.addEventListener('click', closeLightbox);
+
+    // Close on ESC
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') closeLightbox();
+    });
+  </script>
+</body>
+</html>

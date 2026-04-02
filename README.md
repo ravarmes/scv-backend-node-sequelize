@@ -113,6 +113,7 @@
 ## :link: Links <a name="-links"/></a>
 
 - [YouTube](https://www.youtube.com/playlist?list=PL-mvLy2ws8IICXCodoKVwHZq9E987CUrz) - Playlist com vídeos de explicação sobre o código;
+- [Fluxo da Requisição no Backend](assets/jornada-requisicao-backend/index.html) - Página HTML com a explicação visual da jornada da requisição no backend;
 
 ## :memo: Licença <a name="-licenca"/></a>
 

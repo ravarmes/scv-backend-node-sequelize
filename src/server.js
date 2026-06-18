@@ -23,4 +23,5 @@ app.use(express.urlencoded({ limit: '10mb', extended: true }));
 app.use(routes);
 app.use(errorHandler); // Manipulador de erro global (error handler)
 
-app.listen(3333);
+const PORT = process.env.PORT || 3333;
+app.listen(PORT, () => console.log(`Servidor rodando na porta ${PORT}`));
